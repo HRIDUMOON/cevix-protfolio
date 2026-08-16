@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasan Hridoy | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
+
+        /* Space/Galaxy Background Theme */
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex; justify-content: center; align-items: center;
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        body.light-mode {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #1a1a1a;
+        }
+
+        /* Animated Stars */
+        .stars {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: -1;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: twinkle 4s infinite linear; opacity: 0.6;
+        }
+        body.light-mode .stars { display: none; }
+
+        @keyframes twinkle {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-200px); }
+        }
+
+        /* Glassmorphism Container */
+        .container {
+            width: 90%; max-width: 450px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 40px 20px 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            position: relative; margin: 40px 0;
+            transition: all 0.3s ease;
+        }
+
+        body.light-mode .container {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-btn {
+            position: absolute; top: 20px; right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: inherit; font-size: 18px; width: 40px; height: 40px;
+            border-radius: 50%; cursor: pointer;
+            display: flex; justify-content: center; align-items: center;
+            transition: 0.3s;
+        }
+        .theme-btn:hover { background: rgba(255, 255, 255, 0.2); transform: scale(1.1); }
+
+        .avatar {
+            width: 130px; height: 130px; border-radius: 50%; object-fit: cover;
+            border: 4px solid #4facfe; padding: 3px;
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.5); margin-bottom: 15px;
+        }
+
+        .name-container { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 10px; }
+        h1 { margin: 0; font-size: 24px; letter-spacing: 1px; font-weight: 700; }
+        .blue-tick { color: #1da1f2; font-size: 20px; }
+
+        .about-text { font-size: 14px; line-height: 1.6; margin-bottom: 20px; color: #d1d8e0; }
+        body.light-mode .about-text { color: #4b6584; }
+
+        /* Buttons */
+        .btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            text-decoration: none; color: #fff; padding: 14px 24px;
+            border-radius: 50px; font-weight: 600; font-size: 15px;
+            margin-bottom: 15px; transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }
+        .btn-shop { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); font-size: 16px; }
+        .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .btn-yt { background: #ff0000; }
+
+        /* --- LIVE DISCORD SERVER CARD --- */
+        .server-card {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            position: relative;
+            transition: 0.3s;
+        }
+        body.light-mode .server-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .server-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        
+        .server-banner {
+            width: 100%; height: 80px;
+            background-color: #2b2d31;
+            background-size: cover;
+            background-position: center;
+        }
+        .server-info-container { padding: 10px 15px 15px; position: relative; }
+        .server-icon {
+            width: 60px; height: 60px; border-radius: 50%;
+            border: 3px solid #1b2735; position: absolute;
+            top: -30px; left: 15px; background: #2b2d31; object-fit: cover;
+        }
+        body.light-mode .server-icon { border-color: #ffffff; }
+        .server-name {
+            margin: 30px 0 10px 0; font-size: 18px; font-weight: bold; text-align: left;
+        }
+        .server-stats {
+            display: flex; gap: 15px; font-size: 13px; font-weight: 600; justify-content: flex-start;
+        }
+        .stat-online { color: #23a559; display: flex; align-items: center; gap: 5px; }
+        .stat-online::before { content: ''; width: 10px; height: 10px; background: #23a559; border-radius: 50%; }
+        .stat-total { color: #80848e; display: flex; align-items: center; gap: 5px; }
+        body.light-mode .stat-total { color: #4b6584; }
+        .stat-total::before { content: ''; width: 10px; height: 10px; background: currentColor; border-radius: 50%; }
+
+        /* Extra Decor */
+        .services { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; }
+        body.light-mode .services { border-top: 1px solid rgba(0, 0, 0, 0.1); }
+        .services h3 { font-size: 14px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .pill-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .pill { background: rgba(255, 255, 255, 0.1); padding: 6px 14px; border-radius: 20px; font-size: 12px; border: 1px solid rgba(255, 255, 255, 0.2); }
+        body.light-mode .pill { background: rgba(0, 0, 0, 0.05); border: 1px solid rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body>
+
+    <div class="stars"></div>
+
+    <div class="container">
+        <!-- Theme Toggle -->
+        <button class="theme-btn" onclick="toggleTheme()"><i class="fa-solid fa-moon" id="theme-icon"></i></button>
+
+        <!-- Avatar GIF -->
+        <img src="https://i.gifer.com/origin/79/7918544f80a42426bb9ff0ba7592cf1f_w200.gif" alt="Hasan Hridoy" class="avatar">
+
+        <!-- Name & Tick -->
+        <div class="name-container">
+            <h1>HASAN HRIDOY</h1>
+            <i class="fa-solid fa-circle-check blue-tick" title="Verified"></i>
+        </div>
+
+        <p class="about-text">
+            Hello! I am a trusted provider of premium <strong>Discord Products & Subscriptions</strong>. 
+            Alongside my Discord services, I am an expert web developer specializing in building modern <strong>E-commerce Websites</strong>.
+        </p>
+
+        <!-- Social & Shop -->
+        <a href="YOUR_SHOP_LINK_HERE" class="btn btn-shop" target="_blank"><i class="fa-solid fa-cart-shopping"></i> Visit My Shop</a>
+        <a href="YOUR_INSTAGRAM_LINK" class="btn btn-insta" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="YOUR_YOUTUBE_LINK" class="btn btn-yt" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
+
+        <!-- LIVE DISCORD SERVER WIDGET -->
+        <div class="server-card">
+            <div class="server-banner" id="server-banner"></div>
+            <div class="server-info-container">
+                <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Server Icon" class="server-icon" id="server-icon">
+                <div class="server-name" id="server-name">Loading Server...</div>
+                <div class="server-stats">
+                    <div class="stat-online"><span id="active-members">0</span> Active</div>
+                    <div class="stat-total"><span id="total-members">0</span> Members</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expertise Pills -->
+        <div class="services">
+            <h3>My Expertise</h3>
+            <div class="pill-container">
+                <span class="pill"><i class="fa-brands fa-discord"></i> Discord Bots</span>
+                <span class="pill"><i class="fa-solid fa-crown"></i> Subscriptions</span>
+                <span class="pill"><i class="fa-solid fa-laptop-code"></i> Web Dev</span>
+                <span class="pill"><i class="fa-solid fa-store"></i> E-Commerce</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Theme Toggle ---
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            body.classList.toggle('light-mode');
+            if(body.classList.contains('light-mode')) {
+                icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
+            }
+        }
+
+        // --- DISCORD SERVER AUTO SYNC ---
+        
+        // ভাই, এখানে তোর ডিসকর্ড সার্ভারের ইনভাইট কোড দিবি (পুরো লিংক না, শুধু লাস্টের কোডটা)
+        const myInviteCode = "discord-developers"; // EXAMPLE: তোর কোডটা বসা এখানে
+
+        async function fetchDiscordStatus() {
+            try {
+                // ডিসকর্ডের API হুকিং
+                const response = await fetch(`https://discord.com/api/v9/invites/${myInviteCode}?with_counts=true`);
+                const data = await response.json();
+
+                if (data.guild) {
+                    document.getElementById('server-name').innerText = data.guild.name;
+                    document.getElementById('active-members').innerText = data.approximate_presence_count;
+                    document.getElementById('total-members').innerText = data.approximate_member_count;
+
+                    // Logo Set
+                    if (data.guild.icon) {
+                        document.getElementById('server-icon').src = `https://cdn.discordapp.com/icons/${data.guild.id}/${data.guild.icon}.png`;
+                    }
+                    
+                    // Banner Set (সার্ভারে ব্যানার থাকলে দেখাবে, না থাকলে ডিফল্ট কালার)
+                    if (data.guild.banner) {
+                        document.getElementById('server-banner').style.backgroundImage = `url(https://cdn.discordapp.com/banners/${data.guild.id}/${data.guild.banner}.png)`;
+                    } else {
+                        document.getElementById('server-banner').style.backgroundImage = `linear-gradient(90deg, #1b2735, #4facfe)`;
+                    }
+                }
+            } catch (error) {
+                console.error("ধুর, ডেটা লোড হলো না:", error);
+            }
+        }
+
+        // প্রথমবার সাথে সাথে কল হবে, এরপর প্রতি ১০ সেকেন্ড পরপর (10000 ms) অটো আপডেট মারবে
+        fetchDiscordStatus();
+        setInterval(fetchDiscordStatus, 10000);
+    </script>
+</body>
+</html>
