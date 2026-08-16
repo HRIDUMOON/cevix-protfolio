@@ -3,226 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hasan Hridoy | Premium Portfolio</title>
+    <title>HASAN HRIDOY | Premium Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Smooth Scrolling & Base */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+        /* Base & Smooth Scrolling */
         html { scroll-behavior: smooth; }
         body {
             margin: 0; padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: radial-gradient(circle at top, #1b2735 0%, #090a0f 100%);
-            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa; /* Light theme like the image */
+            color: #333;
             overflow-x: hidden;
-            transition: background 0.5s ease, color 0.5s ease;
+            transition: background 0.3s, color 0.3s;
         }
 
-        body.light-mode {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #1a1a1a;
+        /* Dark Mode Variables */
+        body.dark-mode {
+            background-color: #0d1117;
+            color: #c9d1d9;
         }
 
-        /* Animated Stars */
-        .stars {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: -1;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0));
-            background-repeat: repeat; background-size: 200px 200px;
-            animation: twinkle 4s infinite linear; opacity: 0.5;
+        /* Giveaway Promo Banner */
+        .promo-banner {
+            background: linear-gradient(90deg, #ff007f, #7928ca);
+            color: white; text-align: center; padding: 10px; font-size: 14px; font-weight: 600;
         }
-        body.light-mode .stars { display: none; }
-        @keyframes twinkle { 0% { transform: translateY(0); } 100% { transform: translateY(-200px); } }
 
-        /* Premium Navbar */
+        /* Navbar */
         nav {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(15, 20, 30, 0.7);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            z-index: 1000; padding: 15px 0;
-            display: flex; justify-content: center; align-items: center; gap: 30px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; background: transparent; z-index: 10; position: relative;
         }
-        body.light-mode nav { background: rgba(255, 255, 255, 0.7); border-bottom: 1px solid rgba(0,0,0,0.1); }
-        nav a { color: inherit; text-decoration: none; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        nav a:hover { color: #4facfe; }
-        .theme-btn {
-            background: transparent; border: none; color: inherit; font-size: 18px; cursor: pointer; transition: 0.3s;
+        .brand { font-size: 24px; font-weight: 800; display: flex; align-items: center; gap: 8px; color: #1a202c; }
+        body.dark-mode .brand { color: #fff; }
+        .blue-tick { color: #1da1f2; font-size: 20px; }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .theme-btn, .social-btn {
+            background: rgba(0,0,0,0.05); border: none; padding: 10px 15px; border-radius: 10px;
+            cursor: pointer; font-size: 16px; color: inherit; transition: 0.3s; text-decoration: none;
         }
-        .theme-btn:hover { transform: scale(1.2); color: #4facfe; }
+        body.dark-mode .theme-btn, body.dark-mode .social-btn { background: rgba(255,255,255,0.1); color: #fff; }
+        .theme-btn:hover, .social-btn:hover { background: #4facfe; color: #fff; }
 
-        /* General Section Styling */
-        section {
-            min-height: 100vh;
-            padding: 100px 20px 50px;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            max-width: 1000px; margin: 0 auto;
+        /* Hero Section (Modeled after the image) */
+        .hero {
+            position: relative; padding: 60px 5%; display: flex; align-items: center; justify-content: space-between;
+            min-height: 60vh;
         }
+        .hero-bg-shape {
+            position: absolute; top: 0; left: 0; width: 60%; height: 100%;
+            background: #0f172a; border-bottom-right-radius: 150px; z-index: -1;
+        }
+        body.dark-mode .hero-bg-shape { background: #1e293b; }
+        
+        .hero-content { color: #fff; max-width: 50%; z-index: 1; }
+        .hero-content h1 { font-size: 40px; margin-bottom: 15px; line-height: 1.2; }
+        .hero-content p { font-size: 16px; margin-bottom: 30px; opacity: 0.9; }
+        
+        .btn-main {
+            background: #ef4444; color: white; padding: 15px 30px; border-radius: 50px;
+            text-decoration: none; font-weight: 600; font-size: 16px; display: inline-flex; align-items: center; gap: 10px;
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3); transition: 0.3s;
+        }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(239, 68, 68, 0.4); }
 
-        /* Hero Section */
-        .hero-avatar {
-            width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
-            border: 5px solid #4facfe; padding: 5px;
-            box-shadow: 0 0 30px rgba(79, 172, 254, 0.6); margin-bottom: 25px;
+        .hero-image-container { position: relative; width: 45%; text-align: center; }
+        .avatar {
+            width: 250px; height: 250px; border-radius: 50%; object-fit: cover;
+            border: 8px solid #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             animation: float 4s ease-in-out infinite;
         }
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+        body.dark-mode .avatar { border-color: #333; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        /* Features Section */
+        .features {
+            display: flex; justify-content: center; gap: 40px; padding: 50px 5%; flex-wrap: wrap; text-align: center;
+        }
+        .feature-item { max-width: 200px; }
+        .feature-item i { font-size: 40px; color: #4facfe; margin-bottom: 15px; }
+        .feature-item h3 { font-size: 18px; margin-bottom: 10px; }
+        .feature-item p { font-size: 13px; color: #64748b; }
+
+        /* Live Server Panel */
+        .server-section { padding: 20px 5%; display: flex; justify-content: center; }
+        .server-card {
+            width: 100%; max-width: 900px; background: #fff; border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05); overflow: hidden; display: flex; align-items: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        body.dark-mode .server-card { background: #1e293b; border-color: rgba(255,255,255,0.05); }
+        .server-banner { width: 30%; height: 120px; background: #2b2d31; background-size: cover; background-position: center; }
+        .server-info { padding: 20px; display: flex; align-items: center; gap: 20px; flex: 1; }
+        .server-icon { width: 70px; height: 70px; border-radius: 50%; border: 3px solid #e2e8f0; }
+        .server-details h3 { margin: 0 0 5px 0; font-size: 20px; }
+        .server-stats { display: flex; gap: 20px; font-size: 14px; font-weight: 600; }
+        .stat-online { color: #22c55e; }
+        .stat-total { color: #64748b; }
+        .btn-join { margin-left: auto; margin-right: 20px; background: #5865F2; padding: 10px 20px; border-radius: 10px; color: #fff; text-decoration: none; font-weight: bold; }
+
+        /* E-commerce Products Grid (Like the image) */
+        .products-section { padding: 60px 5%; }
+        .section-title { text-align: center; font-size: 30px; margin-bottom: 40px; font-weight: 800; }
+        .products-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+        }
+
+        .product-card {
+            border-radius: 25px; padding: 30px; display: flex; align-items: center; justify-content: space-between;
+            position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s;
+        }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         
-        .hero-name { display: flex; align-items: center; gap: 10px; font-size: 45px; font-weight: 800; margin: 0 0 10px 0; letter-spacing: 2px; text-align: center; }
-        .blue-tick { color: #1da1f2; font-size: 35px; }
-        .hero-subtitle { font-size: 18px; color: #a0aec0; max-width: 600px; text-align: center; line-height: 1.6; margin-bottom: 30px; }
-        body.light-mode .hero-subtitle { color: #4a5568; }
+        /* Card Colors */
+        .card-discord { background: #e0f2fe; }
+        .card-netflix { background: #ffe4e6; }
+        .card-crunchyroll { background: #ffedd5; }
+        .card-canva { background: #dcfce7; }
+        body.dark-mode .card-discord { background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.2); }
+        body.dark-mode .card-netflix { background: rgba(225, 29, 72, 0.1); border: 1px solid rgba(225, 29, 72, 0.2); }
+        body.dark-mode .card-crunchyroll { background: rgba(249, 115, 22, 0.1); border: 1px solid rgba(249, 115, 22, 0.2); }
+        body.dark-mode .card-canva { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.2); }
 
-        /* Buttons Grid */
-        .action-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-        .btn {
-            display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff;
-            padding: 15px 30px; border-radius: 50px; font-weight: bold; font-size: 16px;
-            transition: 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        .product-info { z-index: 2; width: 60%; }
+        .product-info h2 { font-size: 22px; margin: 0 0 10px 0; color: #0f172a; }
+        body.dark-mode .product-info h2 { color: #f8fafc; }
+        .product-info p { font-size: 14px; color: #475569; margin-bottom: 20px; }
+        body.dark-mode .product-info p { color: #cbd5e1; }
+        
+        .btn-buy {
+            background: #ef4444; color: #fff; text-decoration: none; padding: 8px 20px;
+            border-radius: 50px; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;
         }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
-        .btn-shop { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-        .btn-insta { background: linear-gradient(45deg, #f09433 0%, #dc2743 50%, #bc1888 100%); }
-        .btn-yt { background: #ff0000; }
+        .btn-buy:hover { background: #dc2626; }
 
-        /* Section Titles */
-        .section-title { font-size: 30px; font-weight: 700; margin-bottom: 40px; border-bottom: 3px solid #4facfe; padding-bottom: 10px; }
+        .product-img { width: 100px; height: 100px; object-fit: contain; z-index: 2; }
 
-        /* Projects/Portfolio Grid */
-        .projects-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; width: 100%;
+        /* Footer / Developer Mark */
+        footer {
+            background: #0f172a; color: #fff; text-align: center; padding: 30px 20px;
+            font-size: 16px; font-weight: 600; margin-top: 50px; letter-spacing: 1px;
         }
-        .project-card {
-            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px; padding: 25px; transition: 0.4s; text-align: left;
-            backdrop-filter: blur(10px);
-        }
-        body.light-mode .project-card { background: rgba(255, 255, 255, 0.6); border-color: rgba(0,0,0,0.1); }
-        .project-card:hover { transform: translateY(-10px); border-color: #4facfe; box-shadow: 0 10px 30px rgba(79, 172, 254, 0.2); }
-        .project-icon { font-size: 35px; color: #4facfe; margin-bottom: 15px; }
-        .project-card h3 { margin: 0 0 10px 0; font-size: 22px; }
-        .project-card p { font-size: 14px; color: #a0aec0; line-height: 1.5; margin: 0; }
-        body.light-mode .project-card p { color: #4a5568; }
+        .dev-mark { color: #4facfe; }
 
-        /* Wide Live Server Panel */
-        .server-panel {
-            width: 100%; max-width: 800px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-        body.light-mode .server-panel { background: rgba(255, 255, 255, 0.8); border-color: rgba(0,0,0,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .server-banner { width: 100%; height: 150px; background-color: #2b2d31; background-size: cover; background-position: center; }
-        .server-details { padding: 20px 30px 30px; display: flex; flex-direction: column; align-items: center; position: relative; }
-        .server-icon {
-            width: 100px; height: 100px; border-radius: 50%; border: 5px solid #1b2735;
-            position: absolute; top: -50px; background: #2b2d31; object-fit: cover;
-        }
-        body.light-mode .server-icon { border-color: #ffffff; }
-        .server-name { margin: 60px 0 15px 0; font-size: 28px; font-weight: 800; }
-        .server-stats-wide { display: flex; gap: 30px; font-size: 16px; font-weight: 600; }
-        .stat-online { color: #23a559; display: flex; align-items: center; gap: 8px; }
-        .stat-online::before { content: ''; width: 12px; height: 12px; background: #23a559; border-radius: 50%; box-shadow: 0 0 10px #23a559; }
-        .stat-total { color: #80848e; display: flex; align-items: center; gap: 8px; }
-        body.light-mode .stat-total { color: #4b6584; }
-        .stat-total::before { content: ''; width: 12px; height: 12px; background: currentColor; border-radius: 50%; }
-
-        /* Responsive */
+        /* Mobile Responsive */
         @media(max-width: 768px) {
-            .hero-name { font-size: 32px; flex-direction: column; gap: 0; }
-            .blue-tick { font-size: 28px; margin-top: 5px; }
-            nav { gap: 15px; font-size: 12px; padding: 10px 0; }
+            .hero { flex-direction: column; text-align: center; padding: 100px 5% 50px; }
+            .hero-bg-shape { width: 100%; height: 60%; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; }
+            .hero-content { max-width: 100%; margin-bottom: 40px; }
+            .hero-image-container { width: 100%; }
+            .avatar { width: 180px; height: 180px; }
+            .server-card { flex-direction: column; text-align: center; }
+            .server-banner { width: 100%; height: 80px; }
+            .server-info { flex-direction: column; }
+            .btn-join { margin: 10px auto 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="stars"></div>
+    <!-- Promo Banner (Giveaway Focus) -->
+    <div class="promo-banner">
+        🎉 Join our Discord for Free Giveaways - No Entry Fee! 🎉
+    </div>
 
-    <!-- Top Navigation -->
+    <!-- Navigation -->
     <nav>
-        <a href="#home">Home</a>
-        <a href="#projects">Expertise</a>
-        <a href="#server">Live Status</a>
-        <button class="theme-btn" onclick="toggleTheme()"><i class="fa-solid fa-moon" id="theme-icon"></i></button>
+        <div class="brand">HASAN HRIDOY <i class="fa-solid fa-circle-check blue-tick"></i></div>
+        <div class="nav-links">
+            <a href="YOUR_INSTA_LINK" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+            <a href="YOUR_YT_LINK" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+            <button class="theme-btn" onclick="toggleTheme()"><i class="fa-solid fa-moon" id="theme-icon"></i></button>
+        </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section id="home">
-        <img src="https://i.gifer.com/origin/79/7918544f80a42426bb9ff0ba7592cf1f_w200.gif" alt="Hasan Hridoy" class="hero-avatar">
-        <div class="hero-name">
-            HASAN HRIDOY <i class="fa-solid fa-circle-check blue-tick" title="Verified"></i>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-shape"></div>
+        <div class="hero-content">
+            <h1>Technology Meets Your Expectations</h1>
+            <p>I am a trusted Discord Products & Subscriptions Seller and E-Commerce Website Developer. Get premium tools and accounts instantly.</p>
+            <a href="#shop" class="btn-main"><i class="fa-solid fa-cart-shopping"></i> Shop Now</a>
         </div>
-        <p class="hero-subtitle">
-            Premium Discord Products & Subscriptions Provider | Professional Web & E-commerce Developer. 
-            Building high-end digital solutions and managing top-tier Discord communities.
-        </p>
-        <div class="action-btns">
-            <a href="YOUR_SHOP_LINK" class="btn btn-shop" target="_blank"><i class="fa-solid fa-cart-shopping"></i> Visit E-Commerce Shop</a>
-            <a href="YOUR_INSTAGRAM" class="btn btn-insta" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a href="YOUR_YOUTUBE" class="btn btn-yt" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        <div class="hero-image-container">
+            <!-- AVATAR GIF HERE -->
+            <img src="https://i.gifer.com/origin/79/7918544f80a42426bb9ff0ba7592cf1f_w200.gif" alt="Hasan Hridoy" class="avatar">
         </div>
     </section>
 
-    <!-- PROJECTS & EXPERTISE SECTION -->
-    <section id="projects">
-        <h2 class="section-title">Premium Expertise</h2>
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <i class="fa-solid fa-robot project-icon"></i>
-                <h3>Custom Discord Bots</h3>
-                <p>Architect behind high-performance moderation, utility, and music bots like <strong>MASTER BOT</strong>, <strong>Xun</strong>, and <strong>Tempo</strong>. Hosted efficiently for 24/7 uptime.</p>
-            </div>
-            <!-- Project 2 -->
-            <div class="project-card">
-                <i class="fa-solid fa-store project-icon"></i>
-                <h3>E-Commerce & Dropshipping</h3>
-                <p>Developing premium, conversion-optimized online stores and professional developer dashboards using modern web technologies.</p>
-            </div>
-            <!-- Project 3 -->
-            <div class="project-card">
-                <i class="fa-solid fa-crown project-icon"></i>
-                <h3>Subscriptions & Services</h3>
-                <p>Trusted seller for Discord Nitro, server boosts, and premium subscriptions. Lightning-fast delivery with top-tier customer support.</p>
-            </div>
+    <!-- Features -->
+    <section class="features">
+        <div class="feature-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Secure Payment</h3>
+            <p>100% safe and secure transactions for all products.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-bolt"></i>
+            <h3>Fast Delivery</h3>
+            <p>Instant digital delivery right after your purchase.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-medal"></i>
+            <h3>High Quality</h3>
+            <p>Premium accounts and bots with 24/7 lifetime support.</p>
         </div>
     </section>
 
-    <!-- LIVE SERVER SECTION -->
-    <section id="server">
-        <h2 class="section-title">Community Status</h2>
-        <div class="server-panel">
+    <!-- LIVE DISCORD SERVER WIDGET -->
+    <section class="server-section">
+        <div class="server-card">
             <div class="server-banner" id="server-banner"></div>
-            <div class="server-details">
+            <div class="server-info">
                 <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Server Icon" class="server-icon" id="server-icon">
-                <div class="server-name" id="server-name">Loading Server...</div>
-                <div class="server-stats-wide">
-                    <div class="stat-online"><span id="active-members">0</span> Online</div>
-                    <div class="stat-total"><span id="total-members">0</span> Total Members</div>
+                <div class="server-details">
+                    <h3 id="server-name">Loading Server...</h3>
+                    <div class="server-stats">
+                        <span class="stat-online"><i class="fa-solid fa-circle"></i> <span id="active-members">0</span> Online</span>
+                        <span class="stat-total"><i class="fa-solid fa-users"></i> <span id="total-members">0</span> Members</span>
+                    </div>
                 </div>
+                <a href="https://discord.gg/YOUR_INVITE_CODE" class="btn-join" target="_blank">Join Server</a>
             </div>
         </div>
     </section>
+
+    <!-- E-Commerce Products / Subscriptions -->
+    <section class="products-section" id="shop">
+        <h2 class="section-title">Premium Subscriptions</h2>
+        <div class="products-grid">
+            
+            <!-- Discord Nitro -->
+            <div class="product-card card-discord">
+                <div class="product-info">
+                    <h2>Discord Nitro</h2>
+                    <p>Boost your server and get premium perks instantly.</p>
+                    <a href="YOUR_BUY_LINK" class="btn-buy"><i class="fa-solid fa-bag-shopping"></i> Buy Now</a>
+                </div>
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord" class="product-img">
+            </div>
+
+            <!-- Netflix -->
+            <div class="product-card card-netflix">
+                <div class="product-info">
+                    <h2>Netflix Premium</h2>
+                    <p>4K Ultra HD private accounts. Full warranty.</p>
+                    <a href="YOUR_BUY_LINK" class="btn-buy"><i class="fa-solid fa-bag-shopping"></i> Buy Now</a>
+                </div>
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732228.png" alt="Netflix" class="product-img">
+            </div>
+
+            <!-- Crunchyroll -->
+            <div class="product-card card-crunchyroll">
+                <div class="product-info">
+                    <h2>Crunchyroll Mega Fan</h2>
+                    <p>Ad-free anime streaming, offline viewing enabled.</p>
+                    <a href="YOUR_BUY_LINK" class="btn-buy"><i class="fa-solid fa-bag-shopping"></i> Buy Now</a>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Crunchyroll_Logo.png" alt="Crunchyroll" class="product-img" style="width: 80px;">
+            </div>
+
+            <!-- Canva Pro -->
+            <div class="product-card card-canva">
+                <div class="product-info">
+                    <h2>Canva Pro</h2>
+                    <p>Lifetime access to all premium templates and tools.</p>
+                    <a href="YOUR_BUY_LINK" class="btn-buy"><i class="fa-solid fa-bag-shopping"></i> Buy Now</a>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Canva_icon_2021.svg/600px-Canva_icon_2021.svg.png" alt="Canva" class="product-img">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Developer Mark -->
+    <footer>
+        &copy; 2026 All Rights Reserved. | Developer: <span class="dev-mark">HASAN HRIDOY</span>
+    </footer>
 
     <script>
-        // Theme Toggle
+        // --- Theme Toggle ---
         function toggleTheme() {
             const body = document.body;
             const icon = document.getElementById('theme-icon');
-            body.classList.toggle('light-mode');
-            if(body.classList.contains('light-mode')) {
+            body.classList.toggle('dark-mode');
+            if(body.classList.contains('dark-mode')) {
                 icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
             } else {
                 icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
             }
         }
 
-        // Live Discord Sync (10 seconds)
-        const myInviteCode = "discord-developers"; // তোর ইনভাইট কোড এখানে বসাবি
+        // --- DISCORD SERVER AUTO SYNC ---
+        // ভাই, এখানে তোর ডিসকর্ড সার্ভারের ইনভাইট কোড দিবি
+        const myInviteCode = "discord-developers"; 
 
         async function fetchDiscordStatus() {
             try {
@@ -244,7 +320,7 @@
                     }
                 }
             } catch (error) {
-                console.error("ডেটা লোড হলো না:", error);
+                console.error("Failed to load server data:", error);
             }
         }
 
@@ -252,4 +328,4 @@
         setInterval(fetchDiscordStatus, 10000);
     </script>
 </body>
-    </html>
+</html>
