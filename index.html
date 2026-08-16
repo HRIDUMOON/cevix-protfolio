@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Hridoy Hasan — Digital Creator</title>
+  <title>Hridoy Hasan — Discord Founder</title>
 
   <meta
     name="description"
-    content="Hridoy Hasan — Discord Founder, Community Builder and Digital Services Creator."
+    content="Hridoy Hasan — Discord Founder, Community Builder & Digital Creator."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,18 +21,19 @@
 
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     :root {
-      --bg: #020305;
-      --white: #f7f9fc;
-      --muted: #8d96a5;
-      --blue: #329cff;
-      --cyan: #42dfff;
-      --border: rgba(255,255,255,.10);
+      --bg: #010204;
+      --text: #f5f8fb;
+      --muted: #8993a2;
+      --blue: #2697ff;
+      --cyan: #42dcff;
+      --line: rgba(255,255,255,.09);
+      --glass: rgba(255,255,255,.045);
     }
 
     html {
@@ -42,188 +43,193 @@
     body {
       min-height: 100vh;
       overflow-x: hidden;
+      color: var(--text);
+      font-family: Inter, Arial, sans-serif;
       background: var(--bg);
-      color: var(--white);
-      font-family: "Inter", sans-serif;
     }
 
     /* =====================================================
-       REFERENCE STYLE BACKGROUND
+       CINEMATIC BACKGROUND
     ===================================================== */
 
-    .scene {
+    .background {
       position: fixed;
       inset: 0;
-      z-index: -10;
+      z-index: -20;
       overflow: hidden;
       background:
         radial-gradient(
-          ellipse 55% 40% at 50% 105%,
-          rgba(0, 166, 255, .22),
-          transparent 65%
-        ),
-        radial-gradient(
-          ellipse 35% 35% at 90% 45%,
-          rgba(0, 92, 255, .07),
+          ellipse 42% 30% at 50% 100%,
+          rgba(0, 175, 255, .25),
           transparent 70%
         ),
         radial-gradient(
-          ellipse 30% 30% at 5% 55%,
-          rgba(0, 145, 255, .06),
-          transparent 70%
+          ellipse 28% 35% at 90% 45%,
+          rgba(0, 90, 255, .075),
+          transparent 75%
         ),
-        #020305;
-    }
-
-    /* soft cyan light at bottom */
-    .scene::before {
-      content: "";
-      position: absolute;
-      width: 900px;
-      height: 420px;
-      left: 50%;
-      bottom: -330px;
-      transform: translateX(-50%);
-      border-radius: 50%;
-      background: rgba(0, 170, 255, .25);
-      filter: blur(130px);
-    }
-
-    /* subtle dark atmospheric shape */
-    .scene::after {
-      content: "";
-      position: absolute;
-      width: 900px;
-      height: 650px;
-      left: 50%;
-      top: 5%;
-      transform: translateX(-50%);
-      border-radius: 50%;
-      background:
         radial-gradient(
-          ellipse,
-          rgba(14, 31, 53, .20),
-          transparent 68%
-        );
-      filter: blur(40px);
+          ellipse 28% 30% at 5% 58%,
+          rgba(0, 150, 255, .065),
+          transparent 75%
+        ),
+        #010204;
+    }
+
+    .background::before {
+      content: "";
+      position: absolute;
+      width: 900px;
+      height: 380px;
+      left: 50%;
+      bottom: -300px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: rgba(0, 185, 255, .27);
+      filter: blur(125px);
+    }
+
+    .background::after {
+      content: "";
+      position: absolute;
+      width: 1000px;
+      height: 700px;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      background: radial-gradient(
+        ellipse,
+        rgba(15, 35, 60, .16),
+        transparent 68%
+      );
+      filter: blur(45px);
     }
 
     /* =====================================================
        PARTICLES
     ===================================================== */
 
-    .stars {
+    .particles {
       position: fixed;
       inset: 0;
-      z-index: -5;
+      z-index: -10;
       pointer-events: none;
     }
 
-    .star {
+    .particle {
       position: absolute;
       width: 2px;
       height: 2px;
       border-radius: 50%;
       background: rgba(190, 235, 255, .75);
-      box-shadow: 0 0 9px rgba(72, 190, 255, .7);
-      animation: twinkle 5s ease-in-out infinite;
+      box-shadow: 0 0 10px rgba(55,190,255,.8);
+      animation: float 5s ease-in-out infinite;
     }
 
-    .star:nth-child(1)  { left: 7%;  top: 19%; animation-delay: .2s; }
-    .star:nth-child(2)  { left: 13%; top: 43%; animation-delay: 1.3s; }
-    .star:nth-child(3)  { left: 20%; top: 13%; animation-delay: 2.1s; }
-    .star:nth-child(4)  { left: 29%; top: 31%; animation-delay: .8s; }
-    .star:nth-child(5)  { left: 37%; top: 10%; animation-delay: 3s; }
-    .star:nth-child(6)  { left: 45%; top: 25%; animation-delay: 1.8s; }
-    .star:nth-child(7)  { left: 54%; top: 14%; animation-delay: 2.5s; }
-    .star:nth-child(8)  { left: 63%; top: 34%; animation-delay: .4s; }
-    .star:nth-child(9)  { left: 72%; top: 17%; animation-delay: 2.7s; }
-    .star:nth-child(10) { left: 81%; top: 29%; animation-delay: 1.1s; }
-    .star:nth-child(11) { left: 91%; top: 14%; animation-delay: 3.1s; }
-    .star:nth-child(12) { left: 86%; top: 56%; animation-delay: 1.7s; }
-    .star:nth-child(13) { left: 74%; top: 72%; animation-delay: 2.2s; }
-    .star:nth-child(14) { left: 16%; top: 70%; animation-delay: 3.5s; }
-    .star:nth-child(15) { left: 42%; top: 63%; animation-delay: 1.5s; }
-    .star:nth-child(16) { left: 58%; top: 78%; animation-delay: 2.8s; }
+    .particle:nth-child(1)  { left: 7%; top: 18%; animation-delay: .1s; }
+    .particle:nth-child(2)  { left: 14%; top: 43%; animation-delay: 1.2s; }
+    .particle:nth-child(3)  { left: 21%; top: 14%; animation-delay: 2s; }
+    .particle:nth-child(4)  { left: 29%; top: 32%; animation-delay: .6s; }
+    .particle:nth-child(5)  { left: 38%; top: 9%; animation-delay: 2.8s; }
+    .particle:nth-child(6)  { left: 47%; top: 27%; animation-delay: 1.5s; }
+    .particle:nth-child(7)  { left: 55%; top: 13%; animation-delay: 2.4s; }
+    .particle:nth-child(8)  { left: 64%; top: 36%; animation-delay: .4s; }
+    .particle:nth-child(9)  { left: 73%; top: 17%; animation-delay: 2.7s; }
+    .particle:nth-child(10) { left: 83%; top: 29%; animation-delay: 1s; }
+    .particle:nth-child(11) { left: 91%; top: 15%; animation-delay: 3s; }
+    .particle:nth-child(12) { left: 86%; top: 58%; animation-delay: 1.7s; }
+    .particle:nth-child(13) { left: 75%; top: 74%; animation-delay: 2.2s; }
+    .particle:nth-child(14) { left: 16%; top: 72%; animation-delay: 3.4s; }
+    .particle:nth-child(15) { left: 43%; top: 65%; animation-delay: 1.4s; }
 
-    @keyframes twinkle {
+    @keyframes float {
       0%, 100% {
-        opacity: .15;
+        opacity: .12;
         transform: translateY(0);
       }
-
       50% {
         opacity: .9;
-        transform: translateY(-10px);
+        transform: translateY(-12px);
       }
     }
 
     /* =====================================================
-       NAV
+       NAVIGATION
     ===================================================== */
 
-    .nav {
-      width: min(1160px, calc(100% - 40px));
+    nav {
+      width: min(1180px, calc(100% - 42px));
       margin: auto;
       padding: 27px 0;
+
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 11px;
+
       color: white;
       text-decoration: none;
+
       font-size: 14px;
       font-weight: 700;
     }
 
     .brand-icon {
-      width: 37px;
-      height: 37px;
-      border-radius: 12px;
+      width: 38px;
+      height: 38px;
+
       display: grid;
       place-items: center;
-      overflow: hidden;
+
+      border-radius: 12px;
+
+      border: 1px solid var(--line);
 
       background:
         linear-gradient(
           145deg,
           rgba(255,255,255,.12),
-          rgba(255,255,255,.025)
+          rgba(255,255,255,.02)
         );
-
-      border: 1px solid rgba(255,255,255,.12);
 
       box-shadow:
         0 0 30px rgba(0,150,255,.12),
         inset 0 1px rgba(255,255,255,.08);
     }
 
-    .brand-icon span {
-      font-size: 13px;
-      color: #6ee7ff;
+    .brand-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    .brand-letter {
+      color: #63dcff;
       font-weight: 800;
     }
 
-    .availability {
+    .status-wrap {
       display: flex;
       align-items: center;
       gap: 8px;
 
-      color: #7f8998;
+      color: #7e8898;
       font-size: 11px;
     }
 
-    .status {
+    .status-dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #42e58a;
-      box-shadow: 0 0 12px rgba(66,229,138,.8);
+
+      background: #43e58c;
+      box-shadow: 0 0 12px rgba(67,229,140,.8);
     }
 
     /* =====================================================
@@ -231,47 +237,51 @@
     ===================================================== */
 
     .hero {
-      width: min(1160px, calc(100% - 40px));
-      min-height: 770px;
+      width: min(1180px, calc(100% - 42px));
+      min-height: 780px;
+
       margin: auto;
 
       display: flex;
       flex-direction: column;
       align-items: center;
+
       text-align: center;
 
-      padding-top: 95px;
+      padding-top: 90px;
     }
 
     .eyebrow {
       padding: 8px 13px;
+
       border-radius: 999px;
 
       border: 1px solid rgba(255,255,255,.08);
 
       background: rgba(255,255,255,.025);
 
-      color: #929cab;
+      color: #8c96a4;
+
       font-size: 10px;
-      letter-spacing: .5px;
 
-      backdrop-filter: blur(15px);
-
-      margin-bottom: 24px;
+      backdrop-filter: blur(18px);
     }
 
-    .eyebrow b {
-      color: #67e8f9;
-      font-weight: 600;
+    .eyebrow span {
+      color: #63e4ff;
     }
 
-    .hero h1 {
-      max-width: 850px;
+    h1 {
+      max-width: 900px;
 
-      font-size: clamp(48px, 7vw, 82px);
-      line-height: .98;
+      margin-top: 24px;
+
+      font-size: clamp(48px, 7vw, 84px);
+
+      line-height: .96;
 
       letter-spacing: -5px;
+
       font-weight: 800;
     }
 
@@ -279,47 +289,54 @@
       background:
         linear-gradient(
           110deg,
-          #ffffff 10%,
-          #d8f9ff 45%,
-          #51baff 85%
+          #fff 10%,
+          #d5f8ff 48%,
+          #45b8ff 90%
         );
 
       -webkit-background-clip: text;
       background-clip: text;
+
       color: transparent;
     }
 
     .description {
       max-width: 580px;
-      margin-top: 24px;
 
-      color: #7f8998;
+      margin-top: 25px;
+
+      color: var(--muted);
+
       font-size: 14px;
+
       line-height: 1.8;
     }
 
     /* =====================================================
-       PREMIUM BUTTONS
+       BUTTONS
     ===================================================== */
 
-    .actions {
+    .buttons {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
       gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
 
       margin-top: 30px;
     }
 
-    .button {
-      height: 47px;
+    .btn {
+      min-height: 47px;
+
       padding: 0 19px;
 
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 9px;
 
-      color: #eef7ff;
+      color: #edf8ff;
+
       text-decoration: none;
 
       font-size: 12px;
@@ -341,421 +358,407 @@
 
       backdrop-filter: blur(18px);
 
-      transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
+      transition: .3s ease;
     }
 
-    .button:hover {
+    .btn:hover {
       transform: translateY(-3px);
 
-      border-color: rgba(85,210,255,.35);
+      border-color: rgba(80,215,255,.35);
 
       box-shadow:
-        0 15px 45px rgba(0,100,255,.16);
+        0 16px 45px rgba(0,110,255,.18);
     }
 
-    .button.primary {
+    .btn.primary {
       background:
         linear-gradient(
           135deg,
-          rgba(25,121,255,.95),
-          rgba(0,183,216,.85)
+          #197cf2,
+          #08a9cc
         );
 
-      border-color: rgba(115,220,255,.3);
+      border-color: rgba(100,225,255,.3);
 
       box-shadow:
-        0 12px 35px rgba(0,125,255,.22);
+        0 13px 38px rgba(0,125,255,.23);
     }
 
-    .button svg {
+    .btn svg {
       width: 16px;
       height: 16px;
     }
 
     /* =====================================================
-       WEBSITE MOCKUP
+       MAIN VISUAL AREA
     ===================================================== */
 
-    .showcase {
+    .visual {
       position: relative;
 
-      width: min(1050px, 100%);
+      width: min(1100px, 100%);
 
-      margin-top: 65px;
+      margin-top: 70px;
+
+      min-height: 520px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       perspective: 1600px;
     }
 
-    .back-screen {
+    /* =====================================================
+       BACK WEBSITE / DEPTH
+    ===================================================== */
+
+    .back-card {
       position: absolute;
 
-      width: 76%;
-      height: 420px;
+      width: 77%;
+      height: 410px;
 
       left: 50%;
-      top: -45px;
+      top: 25px;
 
       transform:
         translateX(-50%)
-        translateZ(-100px)
         rotateX(7deg)
-        scale(.88);
+        scale(.86);
 
       border-radius: 24px;
 
-      border: 1px solid rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.06);
 
       background:
         linear-gradient(
           145deg,
-          rgba(30,95,145,.09),
+          rgba(25,90,135,.10),
           rgba(255,255,255,.015)
         );
 
-      opacity: .32;
+      opacity: .30;
 
       filter: blur(1px);
     }
 
-    .screen {
-      position: relative;
+    /* =====================================================
+       FLOATING PNG
+    ===================================================== */
 
-      width: 100%;
-      min-height: 505px;
+    .floating-person {
+      position: absolute;
 
-      border-radius: 23px;
+      left: 7%;
+
+      bottom: 5px;
+
+      z-index: 8;
+
+      width: 390px;
+
+      pointer-events: none;
+
+      filter:
+        drop-shadow(0 35px 45px rgba(0,0,0,.75))
+        drop-shadow(0 0 35px rgba(0,145,255,.12));
+
+      animation: personFloat 5s ease-in-out infinite;
+    }
+
+    @keyframes personFloat {
+      0%, 100% {
+        transform: translateY(0) rotate(-1deg);
+      }
+
+      50% {
+        transform: translateY(-13px) rotate(1deg);
+      }
+    }
+
+    /* =====================================================
+       SERVER SHOWCASE
+    ===================================================== */
+
+    .server-card {
+      position: absolute;
+
+      right: 3%;
+      top: 25px;
+
+      z-index: 10;
+
+      width: 370px;
 
       overflow: hidden;
+
+      border-radius: 23px;
 
       border: 1px solid rgba(255,255,255,.12);
 
       background:
         linear-gradient(
           145deg,
-          rgba(14,19,27,.94),
-          rgba(4,8,13,.88)
+          rgba(15,20,28,.86),
+          rgba(4,8,13,.80)
         );
 
       box-shadow:
-        0 55px 130px rgba(0,0,0,.75),
-        0 0 90px rgba(0,120,255,.09),
+        0 45px 100px rgba(0,0,0,.72),
+        0 0 70px rgba(0,120,255,.10),
         inset 0 1px rgba(255,255,255,.08);
 
       backdrop-filter: blur(25px);
 
       transform:
-        rotateX(3deg);
+        rotateX(2deg)
+        rotateY(-3deg);
 
-      transition: transform .7s ease;
+      transition: transform .5s ease;
     }
 
-    .browser {
-      height: 46px;
-
-      display: flex;
-      align-items: center;
-
-      gap: 7px;
-
-      padding: 0 17px;
-
-      border-bottom: 1px solid rgba(255,255,255,.07);
-
-      background: rgba(255,255,255,.025);
+    .server-card:hover {
+      transform:
+        rotateX(0)
+        rotateY(0)
+        translateY(-5px);
     }
 
-    .browser-dot {
-      width: 7px;
-      height: 7px;
+    /* Server banner */
 
-      border-radius: 50%;
+    .server-banner {
+      position: relative;
 
-      background: rgba(255,255,255,.17);
-    }
+      height: 135px;
 
-    .browser-address {
-      width: 230px;
-      height: 24px;
-
-      margin-left: 12px;
-
-      border-radius: 7px;
-
-      background: rgba(255,255,255,.035);
-
-      border: 1px solid rgba(255,255,255,.045);
-    }
-
-    /* mock website */
-
-    .website {
-      min-height: 459px;
-
-      padding: 43px;
-
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 40px;
-
-      align-items: center;
-
-      text-align: left;
-    }
-
-    .website-small {
-      color: #5edfff;
-
-      font-size: 9px;
-      letter-spacing: 2.5px;
-
-      text-transform: uppercase;
-
-      margin-bottom: 15px;
-    }
-
-    .website h2 {
-      font-size: clamp(34px, 5vw, 57px);
-
-      line-height: .98;
-
-      letter-spacing: -3.5px;
-
-      font-weight: 800;
-    }
-
-    .website p {
-      max-width: 440px;
-
-      margin-top: 18px;
-
-      color: #798493;
-
-      font-size: 12px;
-
-      line-height: 1.8;
-    }
-
-    .website-buttons {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-
-      margin-top: 24px;
-    }
-
-    .mini-button {
-      padding: 9px 13px;
-
-      border-radius: 9px;
-
-      color: #b8c8d8;
-
-      font-size: 10px;
-
-      border: 1px solid rgba(255,255,255,.08);
-
-      background: rgba(255,255,255,.035);
-    }
-
-    .mini-button.active {
-      color: white;
+      overflow: hidden;
 
       background:
         linear-gradient(
           135deg,
-          #1675ed,
-          #08a5c5
-        );
-
-      border-color: rgba(130,225,255,.25);
-    }
-
-    /* =====================================================
-       PHOTO CARD
-    ===================================================== */
-
-    .photo-wrap {
-      position: relative;
-
-      height: 290px;
-
-      border-radius: 22px;
-
-      overflow: hidden;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border: 1px solid rgba(255,255,255,.08);
-
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(0,160,255,.16),
-          rgba(255,255,255,.015) 65%
+          #0d1723,
+          #111c2b
         );
     }
 
-    .photo-glow {
-      position: absolute;
-
-      width: 190px;
-      height: 190px;
-
-      border-radius: 50%;
-
-      background: rgba(0,160,255,.25);
-
-      filter: blur(55px);
-    }
-
-    /*
-      PUT YOUR PHOTO HERE
-
-      Example:
-      <img src="profile.jpg">
-
-      Keep profile.jpg in the same folder.
-    */
-
-    .profile-photo {
-      position: relative;
-
-      width: 175px;
-      height: 210px;
+    .server-banner img {
+      width: 100%;
+      height: 100%;
 
       object-fit: cover;
 
-      border-radius: 22px;
+      opacity: .75;
+    }
 
-      border: 1px solid rgba(255,255,255,.16);
+    .server-banner::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent 20%,
+          rgba(2,5,8,.75) 100%
+        );
+    }
+
+    /* Server icon */
+
+    .server-logo {
+      position: absolute;
+
+      z-index: 5;
+
+      left: 22px;
+      bottom: -31px;
+
+      width: 74px;
+      height: 74px;
+
+      padding: 4px;
+
+      border-radius: 21px;
+
+      background: #080b10;
+
+      border: 1px solid rgba(255,255,255,.12);
 
       box-shadow:
-        0 25px 65px rgba(0,0,0,.6),
-        0 0 45px rgba(0,140,255,.18);
+        0 15px 30px rgba(0,0,0,.55);
     }
 
-    /* =====================================================
-       QUICK LINKS
-    ===================================================== */
+    .server-logo img {
+      width: 100%;
+      height: 100%;
 
-    .links {
-      width: min(760px, calc(100% - 40px));
+      border-radius: 17px;
 
-      margin: 70px auto 0;
-
-      padding-bottom: 110px;
+      object-fit: cover;
     }
 
-    .links-heading {
-      text-align: center;
+    .server-body {
+      padding: 48px 22px 22px;
     }
 
-    .links-heading span {
-      display: block;
+    .server-name-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-      color: #55dbff;
+      gap: 10px;
+    }
+
+    .server-name {
+      font-size: 19px;
+      font-weight: 700;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .live {
+      flex-shrink: 0;
+
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+
+      color: #64e89b;
 
       font-size: 9px;
 
-      letter-spacing: 3px;
+      padding: 5px 8px;
 
-      text-transform: uppercase;
+      border-radius: 999px;
 
-      margin-bottom: 12px;
+      background: rgba(54,220,130,.07);
+
+      border: 1px solid rgba(54,220,130,.12);
     }
 
-    .links-heading h3 {
-      font-size: 31px;
+    .live-dot {
+      width: 5px;
+      height: 5px;
 
-      letter-spacing: -1.5px;
+      border-radius: 50%;
+
+      background: #48e892;
+
+      box-shadow: 0 0 9px rgba(72,232,146,.8);
     }
 
-    .link-grid {
+    .server-description {
+      margin-top: 10px;
+
+      min-height: 37px;
+
+      color: #7f8998;
+
+      font-size: 10px;
+
+      line-height: 1.7;
+    }
+
+    /* Stats */
+
+    .server-stats {
       display: grid;
 
       grid-template-columns: 1fr 1fr;
 
-      gap: 13px;
+      gap: 9px;
 
-      margin-top: 30px;
+      margin-top: 17px;
     }
 
-    .link-card {
-      min-height: 120px;
+    .stat {
+      padding: 13px;
 
-      padding: 20px;
+      border-radius: 12px;
 
-      display: block;
+      border: 1px solid rgba(255,255,255,.06);
+
+      background: rgba(255,255,255,.025);
+    }
+
+    .stat-label {
+      color: #667181;
+
+      font-size: 8px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+    }
+
+    .stat-value {
+      margin-top: 5px;
+
+      color: #e9f6ff;
+
+      font-size: 16px;
+
+      font-weight: 700;
+    }
+
+    /* Join */
+
+    .join-button {
+      width: 100%;
+
+      height: 43px;
+
+      margin-top: 12px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
 
       color: white;
+
       text-decoration: none;
 
-      border-radius: 18px;
+      font-size: 11px;
+      font-weight: 600;
 
-      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 11px;
 
       background:
         linear-gradient(
-          145deg,
-          rgba(255,255,255,.055),
-          rgba(255,255,255,.018)
+          135deg,
+          #247ff1,
+          #09a6c7
         );
 
-      backdrop-filter: blur(20px);
+      border: 1px solid rgba(115,225,255,.25);
+
+      box-shadow:
+        0 10px 28px rgba(0,125,255,.16);
 
       transition: .3s ease;
     }
 
-    .link-card:hover {
-      transform: translateY(-4px);
-
-      border-color: rgba(70,210,255,.25);
+    .join-button:hover {
+      transform: translateY(-2px);
 
       box-shadow:
-        0 20px 55px rgba(0,0,0,.35);
+        0 15px 38px rgba(0,125,255,.27);
     }
 
-    .link-icon {
-      width: 38px;
-      height: 38px;
+    .sync {
+      margin-top: 10px;
 
-      display: grid;
-      place-items: center;
+      text-align: center;
 
-      border-radius: 11px;
+      color: #4e5968;
 
-      margin-bottom: 14px;
-
-      color: #6de6ff;
-
-      border: 1px solid rgba(90,220,255,.13);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(30,150,255,.16),
-          rgba(255,255,255,.025)
-        );
-
-      box-shadow:
-        0 0 20px rgba(0,150,255,.08);
-    }
-
-    .link-card h4 {
-      font-size: 13px;
-
-      margin-bottom: 5px;
-    }
-
-    .link-card p {
-      color: #747e8c;
-
-      font-size: 10px;
+      font-size: 8px;
     }
 
     /* =====================================================
@@ -763,43 +766,95 @@
     ===================================================== */
 
     footer {
-      width: min(1160px, calc(100% - 40px));
+      width: min(1180px, calc(100% - 42px));
 
       margin: auto;
 
       padding: 28px 0 35px;
 
-      border-top: 1px solid rgba(255,255,255,.055);
-
       display: flex;
-
       justify-content: space-between;
 
-      color: #566070;
+      border-top: 1px solid rgba(255,255,255,.05);
+
+      color: #515c6c;
 
       font-size: 10px;
     }
 
     footer strong {
-      color: #9ba6b5;
+      color: #9aa6b5;
     }
 
     /* =====================================================
        MOBILE
     ===================================================== */
 
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
 
-      .availability {
+      .hero {
+        min-height: auto;
+      }
+
+      .visual {
+        min-height: 730px;
+
+        margin-top: 55px;
+      }
+
+      .floating-person {
+        left: 50%;
+        bottom: 0;
+
+        width: 330px;
+
+        transform: translateX(-50%);
+      }
+
+      @keyframes personFloat {
+        0%, 100% {
+          transform: translateX(-50%) translateY(0);
+        }
+
+        50% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+      }
+
+      .server-card {
+        right: 50%;
+        top: 0;
+
+        transform: translateX(50%);
+      }
+
+      .server-card:hover {
+        transform: translateX(50%) translateY(-5px);
+      }
+
+      .back-card {
+        width: 85%;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      nav,
+      .hero,
+      footer {
+        width: calc(100% - 28px);
+      }
+
+      .status-wrap {
         display: none;
       }
 
       .hero {
-        padding-top: 65px;
-        min-height: auto;
+        padding-top: 55px;
       }
 
-      .hero h1 {
+      h1 {
+        font-size: 48px;
         letter-spacing: -3px;
       }
 
@@ -807,92 +862,34 @@
         font-size: 12px;
       }
 
-      .showcase {
-        margin-top: 50px;
+      .buttons {
+        width: 100%;
       }
 
-      .website {
-        grid-template-columns: 1fr;
-
-        padding: 30px;
-
-        min-height: 430px;
+      .btn {
+        width: 100%;
       }
 
-      .photo-wrap {
+      .visual {
+        min-height: 650px;
+      }
+
+      .server-card {
+        width: min(350px, 94vw);
+      }
+
+      .floating-person {
+        width: 270px;
+      }
+
+      .back-card {
         display: none;
-      }
-
-      .screen {
-        min-height: 430px;
-      }
-
-      .back-screen {
-        width: 88%;
-      }
-    }
-
-    @media (max-width: 550px) {
-
-      .nav,
-      .hero,
-      footer {
-        width: calc(100% - 28px);
-      }
-
-      .nav {
-        padding-top: 20px;
-      }
-
-      .hero {
-        padding-top: 55px;
-      }
-
-      .hero h1 {
-        font-size: 48px;
-      }
-
-      .actions {
-        width: 100%;
-      }
-
-      .button {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .screen {
-        border-radius: 16px;
-      }
-
-      .browser {
-        height: 42px;
-      }
-
-      .browser-address {
-        width: 150px;
-      }
-
-      .website {
-        padding: 27px;
-      }
-
-      .website h2 {
-        font-size: 39px;
-      }
-
-      .link-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .links {
-        width: calc(100% - 28px);
       }
 
       footer {
         flex-direction: column;
+        align-items: center;
         gap: 8px;
-        text-align: center;
       }
     }
   </style>
@@ -901,53 +898,58 @@
 <body>
 
   <!-- =====================================================
-       ATMOSPHERIC BACKGROUND
+       BACKGROUND
   ====================================================== -->
 
-  <div class="scene"></div>
+  <div class="background"></div>
 
-  <div class="stars">
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
+  <div class="particles">
+
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+
   </div>
 
 
   <!-- =====================================================
-       NAVIGATION
+       NAV
   ====================================================== -->
 
-  <header class="nav">
+  <nav>
 
     <a href="#" class="brand">
 
       <div class="brand-icon">
-        <span>H</span>
+        <span class="brand-letter">H</span>
       </div>
 
       Hridoy Hasan
 
     </a>
 
-    <div class="availability">
-      <span class="status"></span>
+
+    <div class="status-wrap">
+
+      <span class="status-dot"></span>
+
       Available for work
+
     </div>
 
-  </header>
+  </nav>
 
 
   <!-- =====================================================
@@ -959,7 +961,7 @@
     <section class="hero">
 
       <div class="eyebrow">
-        <b>●</b>
+        <span>●</span>
         Discord Founder · Digital Creator
       </div>
 
@@ -973,25 +975,25 @@
       <!-- YOUR DESCRIPTION -->
 
       <p class="description">
-        Discord server founder and digital creator focused on building
-        communities, providing digital services and creating premium
-        online experiences.
+        Discord Founder and Digital Creator focused on building
+        communities, managing digital services and creating
+        premium online experiences.
       </p>
 
 
-      <!-- MAIN BUTTONS -->
+      <!-- =================================================
+           TWO MAIN BUTTONS
+      ================================================== -->
 
-      <div class="actions">
+      <div class="buttons">
 
-        <!-- CHANGE THIS LINK -->
+        <!-- SHOP SERVER LINK -->
 
         <a
-          class="button primary"
           href="https://discord.gg/YOUR-SHOP-SERVER"
           target="_blank"
+          class="btn primary"
         >
-
-          <!-- Premium bag/store icon -->
 
           <svg
             viewBox="0 0 24 24"
@@ -1005,20 +1007,18 @@
             <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
           </svg>
 
-          Shop Server
+          SHOP SERVER
 
         </a>
 
 
-        <!-- CHANGE THIS LINK -->
+        <!-- NOBOGOTO LINK -->
 
         <a
-          class="button"
           href="https://discord.gg/YOUR-NOBOGOTO"
           target="_blank"
+          class="btn"
         >
-
-          <!-- Premium community icon -->
 
           <svg
             viewBox="0 0 24 24"
@@ -1042,65 +1042,129 @@
 
 
       <!-- =================================================
-           WEBSITE / PORTFOLIO MOCKUP
+           MAIN VISUAL
       ================================================== -->
 
-      <div class="showcase">
+      <div class="visual">
 
-        <!-- BACK / DEPTH SCREEN -->
+        <!-- Background depth layer -->
 
-        <div class="back-screen"></div>
+        <div class="back-card"></div>
 
 
-        <!-- MAIN SCREEN -->
+        <!-- =================================================
+             YOUR PNG PHOTO
 
-        <div class="screen">
+             Put your transparent PNG in same folder:
 
-          <div class="browser">
+             profile.png
 
-            <span class="browser-dot"></span>
-            <span class="browser-dot"></span>
-            <span class="browser-dot"></span>
+             Example:
+             index.html
+             profile.png
+        ================================================== -->
 
-            <div class="browser-address"></div>
+        <img
+          src="profile.png"
+          alt="Hridoy Hasan"
+          class="floating-person"
+        >
+
+
+        <!-- =================================================
+             DISCORD SERVER SHOWCASE
+        ================================================== -->
+
+        <div class="server-card">
+
+          <!-- SERVER BANNER -->
+
+          <div class="server-banner">
+
+            <img
+              id="serverBanner"
+              src=""
+              alt="Discord Server Banner"
+              style="display:none;"
+            >
 
           </div>
 
 
-          <div class="website">
+          <!-- SERVER LOGO -->
 
-            <div>
+          <div class="server-logo">
 
-              <div class="website-small">
-                Portfolio · 2026
+            <img
+              id="serverIcon"
+              src=""
+              alt="Server Icon"
+            >
+
+          </div>
+
+
+          <div class="server-body">
+
+            <div class="server-name-row">
+
+              <div
+                class="server-name"
+                id="serverName"
+              >
+                Loading server...
+              </div>
+
+              <div class="live">
+
+                <span class="live-dot"></span>
+
+                LIVE
+
+              </div>
+
+            </div>
+
+
+            <p
+              class="server-description"
+              id="serverDescription"
+            >
+              Loading server information...
+            </p>
+
+
+            <!-- SERVER STATS -->
+
+            <div class="server-stats">
+
+              <div class="stat">
+
+                <div class="stat-label">
+                  Online
+                </div>
+
+                <div
+                  class="stat-value"
+                  id="onlineCount"
+                >
+                  —
+                </div>
+
               </div>
 
 
-              <h2>
-                Hridoy<br>
-                <span class="gradient">Hasan.</span>
-              </h2>
+              <div class="stat">
 
-
-              <p>
-                Discord Founder, Community Builder and Digital
-                Services Creator. Creating clean, useful and
-                memorable digital experiences.
-              </p>
-
-
-              <div class="website-buttons">
-
-                <div class="mini-button active">
-                  Discord Founder
+                <div class="stat-label">
+                  Members
                 </div>
 
-                <div class="mini-button">
-                  Digital Services
-                </div>
-
-                <div class="mini-button">
-                  Projects
+                <div
+                  class="stat-value"
+                  id="memberCount"
+                >
+                  —
                 </div>
 
               </div>
@@ -1108,129 +1172,45 @@
             </div>
 
 
-            <!-- =============================================
-                 YOUR PHOTO
-                 
-                 Put your image in the same folder:
-                 profile.jpg
+            <!-- JOIN SERVER -->
 
-                 Then this automatically shows it.
-            ============================================== -->
+            <a
+              id="joinServer"
+              href="#"
+              target="_blank"
+              class="join-button"
+            >
 
-            <div class="photo-wrap">
-
-              <div class="photo-glow"></div>
-
-              <img
-                src="profile.jpg"
-                alt="Hridoy Hasan"
-                class="profile-photo"
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
+                <path d="M16 3h5v5"/>
+                <path d="M10 14 21 3"/>
+                <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/>
+              </svg>
 
+              JOIN SERVER
+
+            </a>
+
+
+            <div
+              class="sync"
+              id="syncStatus"
+            >
+              Syncing server data...
             </div>
 
           </div>
 
         </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         SERVER LINKS
-    ====================================================== -->
-
-    <section class="links">
-
-      <div class="links-heading">
-
-        <span>Connect</span>
-
-        <h3>
-          My communities
-        </h3>
-
-      </div>
-
-
-      <div class="link-grid">
-
-        <!-- SHOP SERVER -->
-
-        <a
-          href="https://discord.gg/YOUR-SHOP-SERVER"
-          target="_blank"
-          class="link-card"
-        >
-
-          <div class="link-icon">
-
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M6 8h12l1 12H5L6 8Z"/>
-              <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
-            </svg>
-
-          </div>
-
-          <h4>
-            Shop Server
-          </h4>
-
-          <p>
-            Digital services & subscriptions
-          </p>
-
-        </a>
-
-
-        <!-- NOBOGOTO -->
-
-        <a
-          href="https://discord.gg/YOUR-NOBOGOTO"
-          target="_blank"
-          class="link-card"
-        >
-
-          <div class="link-icon">
-
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20"/>
-              <circle cx="9.5" cy="7" r="3"/>
-              <path d="M17 11a3 3 0 1 0-1-5.8"/>
-              <path d="M21 20v-1.5a4 4 0 0 0-3-3.87"/>
-            </svg>
-
-          </div>
-
-          <h4>
-            NOBOGOTO
-          </h4>
-
-          <p>
-            Community, adda & social space
-          </p>
-
-        </a>
 
       </div>
 
@@ -1257,54 +1237,438 @@
 
 
   <!-- =====================================================
-       MOUSE PARALLAX
+       JAVASCRIPT
   ====================================================== -->
 
   <script>
 
-    const screen = document.querySelector(".screen");
-    const backScreen = document.querySelector(".back-screen");
+    /*
+    ========================================================
+    CONFIGURATION
+    ========================================================
 
-    document.addEventListener("mousemove", (event) => {
+    Put your permanent Discord invite here.
 
-      if (window.innerWidth <= 800) return;
+    Example:
 
-      const x =
-        (event.clientX / window.innerWidth - 0.5);
+    https://discord.gg/abcdef
 
-      const y =
-        (event.clientY / window.innerHeight - 0.5);
+    IMPORTANT:
+    This frontend-only version uses Discord's public
+    invite/widget endpoints where available.
 
+    For guaranteed live online/member counts, Discord
+    requires a backend/bot with appropriate permissions.
+    ========================================================
+    */
 
-      screen.style.transform = `
-        rotateX(${3 - y * 4}deg)
-        rotateY(${x * 4}deg)
-        translateY(-3px)
-      `;
+    const SHOP_INVITE =
+      "https://discord.gg/YOUR-SHOP-SERVER";
 
-
-      backScreen.style.transform = `
-        translateX(-50%)
-        translateZ(-100px)
-        rotateX(${7 - y * 2}deg)
-        rotateY(${x * 2}deg)
-        scale(.88)
-      `;
-
-    });
+    const NOBOGOTO_INVITE =
+      "https://discord.gg/YOUR-NOBOGOTO";
 
 
-    document.addEventListener("mouseleave", () => {
+    /*
+    ========================================================
+    WHICH SERVER TO SHOW
+    ========================================================
+    */
 
-      screen.style.transform =
-        "rotateX(3deg)";
+    const SHOWCASE_INVITE = SHOP_INVITE;
 
-      backScreen.style.transform =
-        "translateX(-50%) translateZ(-100px) rotateX(7deg) scale(.88)";
 
-    });
+    /*
+    ========================================================
+    EXTRACT INVITE CODE
+    ========================================================
+    */
+
+    function getInviteCode(url) {
+
+      try {
+
+        const parsed = new URL(url);
+
+        const parts =
+          parsed.pathname
+            .split("/")
+            .filter(Boolean);
+
+        return parts[parts.length - 1] || "";
+
+      } catch {
+
+        return "";
+
+      }
+
+    }
+
+
+    /*
+    ========================================================
+    FORMAT NUMBERS
+    ========================================================
+    */
+
+    function formatNumber(number) {
+
+      if (
+        number === null ||
+        number === undefined ||
+        Number.isNaN(number)
+      ) {
+        return "—";
+      }
+
+      return Number(number).toLocaleString();
+
+    }
+
+
+    /*
+    ========================================================
+    SERVER DATA
+    ========================================================
+    */
+
+    async function loadServer() {
+
+      const code =
+        getInviteCode(SHOWCASE_INVITE);
+
+
+      const sync =
+        document.getElementById("syncStatus");
+
+
+      if (!code) {
+
+        sync.textContent =
+          "Invalid Discord invite.";
+
+        return;
+
+      }
+
+
+      /*
+      Discord public invite endpoint.
+
+      This can expose invite preview information
+      when Discord makes that information available.
+      */
+
+      try {
+
+        const response =
+          await fetch(
+            `https://discord.com/api/v10/invites/${encodeURIComponent(code)}?with_counts=true&with_expiration=true`,
+            {
+              method: "GET",
+              headers: {
+                "Accept": "application/json"
+              }
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Discord API request failed"
+          );
+
+        }
+
+
+        const data =
+          await response.json();
+
+
+        /*
+        SERVER NAME
+        */
+
+        const serverName =
+          data.guild?.name ||
+          "Discord Server";
+
+
+        document.getElementById(
+          "serverName"
+        ).textContent =
+          serverName;
+
+
+        /*
+        SERVER DESCRIPTION
+
+        Discord's invite response does not always
+        include a full server description.
+        */
+
+        const description =
+          data.guild?.description ||
+          "Join our Discord community and connect with the community.";
+
+
+        document.getElementById(
+          "serverDescription"
+        ).textContent =
+          description;
+
+
+        /*
+        SERVER ICON
+        */
+
+        const icon =
+          data.guild?.icon;
+
+
+        if (icon) {
+
+          const extension =
+            icon.startsWith("a_")
+              ? "gif"
+              : "png";
+
+
+          document.getElementById(
+            "serverIcon"
+          ).src =
+            `https://cdn.discordapp.com/icons/${data.guild.id}/${icon}.${extension}?size=256`;
+
+        }
+
+
+        /*
+        SERVER BANNER
+
+        Banner may not always be available
+        through invite preview.
+        */
+
+        const banner =
+          data.guild?.banner;
+
+
+        const bannerElement =
+          document.getElementById(
+            "serverBanner"
+          );
+
+
+        if (banner) {
+
+          bannerElement.src =
+            `https://cdn.discordapp.com/banners/${data.guild.id}/${banner}.png?size=1024`;
+
+          bannerElement.style.display =
+            "block";
+
+        }
+
+
+        /*
+        MEMBER COUNTS
+
+        Discord may return approximate counts
+        for public invite previews.
+        */
+
+        document.getElementById(
+          "onlineCount"
+        ).textContent =
+          formatNumber(
+            data.approximate_presence_count
+          );
+
+
+        document.getElementById(
+          "memberCount"
+        ).textContent =
+          formatNumber(
+            data.approximate_member_count
+          );
+
+
+        /*
+        JOIN BUTTON
+        */
+
+        document.getElementById(
+          "joinServer"
+        ).href =
+          SHOWCASE_INVITE;
+
+
+        /*
+        SYNC STATUS
+        */
+
+        const now =
+          new Date();
+
+
+        sync.textContent =
+          "Last synced " +
+          now.toLocaleTimeString();
+
+
+      } catch (error) {
+
+        console.error(error);
+
+
+        document.getElementById(
+          "serverName"
+        ).textContent =
+          "Discord Server";
+
+
+        document.getElementById(
+          "serverDescription"
+        ).textContent =
+          "Join our Discord community.";
+
+
+        document.getElementById(
+          "onlineCount"
+        ).textContent =
+          "—";
+
+
+        document.getElementById(
+          "memberCount"
+        ).textContent =
+          "—";
+
+
+        document.getElementById(
+          "joinServer"
+        ).href =
+          SHOWCASE_INVITE;
+
+
+        sync.textContent =
+          "Live data unavailable";
+
+
+      }
+
+    }
+
+
+    /*
+    ========================================================
+    INITIAL LOAD
+    ========================================================
+    */
+
+    loadServer();
+
+
+    /*
+    ========================================================
+    AUTO SYNC EVERY 10 SECONDS
+    ========================================================
+    */
+
+    setInterval(
+      loadServer,
+      10000
+    );
+
+
+    /*
+    ========================================================
+    MOUSE PARALLAX
+    ========================================================
+    */
+
+    const visual =
+      document.querySelector(".visual");
+
+    const person =
+      document.querySelector(".floating-person");
+
+    const server =
+      document.querySelector(".server-card");
+
+
+    document.addEventListener(
+      "mousemove",
+      function(event) {
+
+        if (
+          window.innerWidth <= 900
+        ) {
+          return;
+        }
+
+
+        const x =
+          (event.clientX /
+            window.innerWidth) - .5;
+
+
+        const y =
+          (event.clientY /
+            window.innerHeight) - .5;
+
+
+        /*
+        Person moves slightly.
+        */
+
+        person.style.marginLeft =
+          `${x * 14}px`;
+
+        person.style.marginBottom =
+          `${y * -10}px`;
+
+
+        /*
+        Server card moves opposite direction.
+        */
+
+        server.style.transform =
+          `
+          rotateX(${y * -3}deg)
+          rotateY(${x * -4 - 3}deg)
+          translate(${x * -8}px, ${y * -5}px)
+          `;
+
+      }
+    );
+
+
+    /*
+    ========================================================
+    RESET ON MOUSE LEAVE
+    ========================================================
+    */
+
+    document.addEventListener(
+      "mouseleave",
+      function() {
+
+        person.style.marginLeft =
+          "0px";
+
+        person.style.marginBottom =
+          "0px";
+
+        server.style.transform =
+          "rotateX(2deg) rotateY(-3deg)";
+
+      }
+    );
 
   </script>
 
 </body>
-    </html>
+  </html>
