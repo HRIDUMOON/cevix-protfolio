@@ -1,1674 +1,2631 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Hridoy Hasan — Discord Founder</title>
+<title>Hridoy Hasan — Digital Creator</title>
 
-  <meta
-    name="description"
-    content="Hridoy Hasan — Discord Founder, Community Builder & Digital Creator."
-  >
+<meta name="description"
+content="Hridoy Hasan — Discord Founder, Community Builder & Digital Creator.">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+/* =========================================================
+   RESET
+========================================================= */
 
-    :root {
-      --bg: #010204;
-      --text: #f5f8fb;
-      --muted: #8993a2;
-      --blue: #2697ff;
-      --cyan: #42dcff;
-      --line: rgba(255,255,255,.09);
-      --glass: rgba(255,255,255,.045);
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+html{
+    scroll-behavior:smooth;
+}
 
-    body {
-      min-height: 100vh;
-      overflow-x: hidden;
-      color: var(--text);
-      font-family: Inter, Arial, sans-serif;
-      background: var(--bg);
-    }
+body{
+    background:#080706;
+    color:#fff;
+    font-family:Inter,Arial,sans-serif;
+    overflow-x:hidden;
+}
 
-    /* =====================================================
-       CINEMATIC BACKGROUND
-    ===================================================== */
+a{
+    color:inherit;
+    text-decoration:none;
+}
 
-    .background {
-      position: fixed;
-      inset: 0;
-      z-index: -20;
-      overflow: hidden;
-      background:
+button{
+    font-family:inherit;
+}
+
+/* =========================================================
+   COLORS
+========================================================= */
+
+:root{
+    --bg:#080706;
+    --bg2:#0d0a08;
+
+    --white:#ffffff;
+    --soft:#ddd5ce;
+    --muted:#918981;
+
+    --orange:#ff6a00;
+    --orange2:#ff8c32;
+    --amber:#ffb566;
+
+    --border:rgba(255,255,255,.09);
+    --glass:rgba(255,255,255,.035);
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.page-bg{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    overflow:hidden;
+    background:
         radial-gradient(
-          ellipse 42% 30% at 50% 100%,
-          rgba(0, 175, 255, .25),
-          transparent 70%
+            circle at 8% 12%,
+            rgba(255,106,0,.14),
+            transparent 27%
         ),
         radial-gradient(
-          ellipse 28% 35% at 90% 45%,
-          rgba(0, 90, 255, .075),
-          transparent 75%
+            circle at 92% 26%,
+            rgba(255,130,45,.08),
+            transparent 25%
         ),
         radial-gradient(
-          ellipse 28% 30% at 5% 58%,
-          rgba(0, 150, 255, .065),
-          transparent 75%
+            ellipse at 50% 105%,
+            rgba(255,91,0,.24),
+            transparent 48%
         ),
-        #010204;
-    }
+        #080706;
+}
 
-    .background::before {
-      content: "";
-      position: absolute;
-      width: 900px;
-      height: 380px;
-      left: 50%;
-      bottom: -300px;
-      transform: translateX(-50%);
-      border-radius: 50%;
-      background: rgba(0, 185, 255, .27);
-      filter: blur(125px);
-    }
+.glow{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(100px);
+    pointer-events:none;
+}
 
-    .background::after {
-      content: "";
-      position: absolute;
-      width: 1000px;
-      height: 700px;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-      background: radial-gradient(
-        ellipse,
-        rgba(15, 35, 60, .16),
-        transparent 68%
-      );
-      filter: blur(45px);
-    }
+.glow.one{
+    width:500px;
+    height:500px;
+    left:-220px;
+    top:15%;
+    background:rgba(255,80,0,.12);
+}
 
-    /* =====================================================
-       PARTICLES
-    ===================================================== */
+.glow.two{
+    width:550px;
+    height:550px;
+    right:-280px;
+    top:40%;
+    background:rgba(255,120,20,.08);
+}
 
-    .particles {
-      position: fixed;
-      inset: 0;
-      z-index: -10;
-      pointer-events: none;
-    }
+.glow.three{
+    width:850px;
+    height:300px;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:-230px;
+    background:rgba(255,82,0,.27);
+    filter:blur(120px);
+}
 
-    .particle {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      border-radius: 50%;
-      background: rgba(190, 235, 255, .75);
-      box-shadow: 0 0 10px rgba(55,190,255,.8);
-      animation: float 5s ease-in-out infinite;
-    }
+/* =========================================================
+   GRAIN
+========================================================= */
 
-    .particle:nth-child(1)  { left: 7%; top: 18%; animation-delay: .1s; }
-    .particle:nth-child(2)  { left: 14%; top: 43%; animation-delay: 1.2s; }
-    .particle:nth-child(3)  { left: 21%; top: 14%; animation-delay: 2s; }
-    .particle:nth-child(4)  { left: 29%; top: 32%; animation-delay: .6s; }
-    .particle:nth-child(5)  { left: 38%; top: 9%; animation-delay: 2.8s; }
-    .particle:nth-child(6)  { left: 47%; top: 27%; animation-delay: 1.5s; }
-    .particle:nth-child(7)  { left: 55%; top: 13%; animation-delay: 2.4s; }
-    .particle:nth-child(8)  { left: 64%; top: 36%; animation-delay: .4s; }
-    .particle:nth-child(9)  { left: 73%; top: 17%; animation-delay: 2.7s; }
-    .particle:nth-child(10) { left: 83%; top: 29%; animation-delay: 1s; }
-    .particle:nth-child(11) { left: 91%; top: 15%; animation-delay: 3s; }
-    .particle:nth-child(12) { left: 86%; top: 58%; animation-delay: 1.7s; }
-    .particle:nth-child(13) { left: 75%; top: 74%; animation-delay: 2.2s; }
-    .particle:nth-child(14) { left: 16%; top: 72%; animation-delay: 3.4s; }
-    .particle:nth-child(15) { left: 43%; top: 65%; animation-delay: 1.4s; }
+.grain{
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    opacity:.035;
+    pointer-events:none;
 
-    @keyframes float {
-      0%, 100% {
-        opacity: .12;
-        transform: translateY(0);
-      }
-      50% {
-        opacity: .9;
-        transform: translateY(-12px);
-      }
-    }
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
 
-    /* =====================================================
-       NAVIGATION
-    ===================================================== */
+/* =========================================================
+   CONTAINER
+========================================================= */
 
-    nav {
-      width: min(1180px, calc(100% - 42px));
-      margin: auto;
-      padding: 27px 0;
+.container{
+    width:min(1180px,calc(100% - 40px));
+    margin:auto;
+}
 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+/* =========================================================
+   NAVBAR
+========================================================= */
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
+.nav{
+    height:86px;
 
-      color: white;
-      text-decoration: none;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-      font-size: 14px;
-      font-weight: 700;
-    }
+    border-bottom:1px solid rgba(255,255,255,.055);
+}
 
-    .brand-icon {
-      width: 38px;
-      height: 38px;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
 
-      display: grid;
-      place-items: center;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.2px;
+}
 
-      border-radius: 12px;
+.logo-image{
+    width:37px;
+    height:37px;
 
-      border: 1px solid var(--line);
+    border-radius:11px;
 
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.12),
-          rgba(255,255,255,.02)
+    object-fit:cover;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+        0 0 25px rgba(255,106,0,.15);
+}
+
+.logo-fallback{
+    width:37px;
+    height:37px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:11px;
+
+    background:linear-gradient(
+        135deg,
+        #ff6a00,
+        #ff9b4a
+    );
+
+    color:#080706;
+    font-size:15px;
+    font-weight:800;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.nav-status{
+    display:flex;
+    align-items:center;
+    gap:7px;
+
+    color:#837b74;
+    font-size:10px;
+}
+
+.status-dot{
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#ff8538;
+
+    box-shadow:0 0 12px rgba(255,106,0,.8);
+}
+
+.nav-link{
+    font-size:10px;
+    color:#a29a93;
+
+    transition:.25s;
+}
+
+.nav-link:hover{
+    color:#fff;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:760px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+
+    gap:60px;
+
+    padding:90px 0 100px;
+}
+
+.hero-left{
+    position:relative;
+    z-index:4;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 12px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.025);
+
+    color:#999089;
+
+    font-size:9px;
+    letter-spacing:.3px;
+
+    backdrop-filter:blur(15px);
+}
+
+.eyebrow i{
+    width:5px;
+    height:5px;
+
+    display:block;
+
+    border-radius:50%;
+
+    background:var(--orange);
+
+    box-shadow:0 0 10px var(--orange);
+}
+
+.hero h1{
+    margin-top:25px;
+
+    max-width:680px;
+
+    font-size:clamp(54px,6.2vw,82px);
+
+    line-height:.98;
+
+    letter-spacing:-5px;
+
+    font-weight:800;
+}
+
+.orange-text{
+    color:var(--orange);
+}
+
+.hero-description{
+    max-width:520px;
+
+    margin-top:25px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.9;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:10px;
+
+    margin-top:30px;
+}
+
+.btn{
+    min-height:46px;
+
+    padding:0 18px;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    border-radius:11px;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    background:rgba(255,255,255,.035);
+
+    color:#eee;
+
+    font-size:10px;
+    font-weight:600;
+
+    transition:.3s;
+
+    backdrop-filter:blur(15px);
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+
+    border-color:rgba(255,120,40,.35);
+
+    box-shadow:0 15px 40px rgba(255,80,0,.12);
+}
+
+.btn.primary{
+    background:linear-gradient(
+        135deg,
+        #ff6500,
+        #ff8d35
+    );
+
+    color:#140a04;
+
+    border-color:rgba(255,177,112,.3);
+
+    box-shadow:
+        0 13px 35px rgba(255,80,0,.16);
+}
+
+/* =========================================================
+   HERO IMAGE AREA
+========================================================= */
+
+.hero-right{
+    position:relative;
+
+    height:560px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.hero-orb{
+    position:absolute;
+
+    width:380px;
+    height:380px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,112,35,.19),
+            rgba(255,70,0,.035) 48%,
+            transparent 70%
         );
 
-      box-shadow:
-        0 0 30px rgba(0,150,255,.12),
-        inset 0 1px rgba(255,255,255,.08);
-    }
+    filter:blur(8px);
+}
 
-    .brand-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: inherit;
-    }
+.hero-ring{
+    position:absolute;
 
-    .brand-letter {
-      color: #63dcff;
-      font-weight: 800;
-    }
+    width:420px;
+    height:420px;
 
-    .status-wrap {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    border:1px solid rgba(255,120,50,.08);
 
-      color: #7e8898;
-      font-size: 11px;
-    }
+    border-radius:50%;
+}
 
-    .status-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
+.hero-ring::before{
+    content:"";
 
-      background: #43e58c;
-      box-shadow: 0 0 12px rgba(67,229,140,.8);
-    }
+    position:absolute;
+    inset:25px;
 
-    /* =====================================================
-       HERO
-    ===================================================== */
+    border:1px solid rgba(255,255,255,.035);
 
-    .hero {
-      width: min(1180px, calc(100% - 42px));
-      min-height: 780px;
+    border-radius:50%;
+}
 
-      margin: auto;
+/* floating image */
 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+.profile{
+    position:absolute;
 
-      text-align: center;
+    z-index:5;
 
-      padding-top: 90px;
-    }
+    width:min(430px,90%);
 
-    .eyebrow {
-      padding: 8px 13px;
+    max-height:560px;
 
-      border-radius: 999px;
+    object-fit:contain;
 
-      border: 1px solid rgba(255,255,255,.08);
+    object-position:center bottom;
 
-      background: rgba(255,255,255,.025);
-
-      color: #8c96a4;
-
-      font-size: 10px;
-
-      backdrop-filter: blur(18px);
-    }
-
-    .eyebrow span {
-      color: #63e4ff;
-    }
-
-    h1 {
-      max-width: 900px;
-
-      margin-top: 24px;
-
-      font-size: clamp(48px, 7vw, 84px);
-
-      line-height: .96;
-
-      letter-spacing: -5px;
-
-      font-weight: 800;
-    }
-
-    .gradient {
-      background:
-        linear-gradient(
-          110deg,
-          #fff 10%,
-          #d5f8ff 48%,
-          #45b8ff 90%
-        );
-
-      -webkit-background-clip: text;
-      background-clip: text;
-
-      color: transparent;
-    }
-
-    .description {
-      max-width: 580px;
-
-      margin-top: 25px;
-
-      color: var(--muted);
-
-      font-size: 14px;
-
-      line-height: 1.8;
-    }
-
-    /* =====================================================
-       BUTTONS
-    ===================================================== */
-
-    .buttons {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-
-      margin-top: 30px;
-    }
-
-    .btn {
-      min-height: 47px;
-
-      padding: 0 19px;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-
-      color: #edf8ff;
-
-      text-decoration: none;
-
-      font-size: 12px;
-      font-weight: 600;
-
-      border-radius: 12px;
-
-      border: 1px solid rgba(255,255,255,.10);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.075),
-          rgba(255,255,255,.025)
-        );
-
-      box-shadow:
-        inset 0 1px rgba(255,255,255,.05);
-
-      backdrop-filter: blur(18px);
-
-      transition: .3s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-
-      border-color: rgba(80,215,255,.35);
-
-      box-shadow:
-        0 16px 45px rgba(0,110,255,.18);
-    }
-
-    .btn.primary {
-      background:
-        linear-gradient(
-          135deg,
-          #197cf2,
-          #08a9cc
-        );
-
-      border-color: rgba(100,225,255,.3);
-
-      box-shadow:
-        0 13px 38px rgba(0,125,255,.23);
-    }
-
-    .btn svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    /* =====================================================
-       MAIN VISUAL AREA
-    ===================================================== */
-
-    .visual {
-      position: relative;
-
-      width: min(1100px, 100%);
-
-      margin-top: 70px;
-
-      min-height: 520px;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      perspective: 1600px;
-    }
-
-    /* =====================================================
-       BACK WEBSITE / DEPTH
-    ===================================================== */
-
-    .back-card {
-      position: absolute;
-
-      width: 77%;
-      height: 410px;
-
-      left: 50%;
-      top: 25px;
-
-      transform:
-        translateX(-50%)
-        rotateX(7deg)
-        scale(.86);
-
-      border-radius: 24px;
-
-      border: 1px solid rgba(255,255,255,.06);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(25,90,135,.10),
-          rgba(255,255,255,.015)
-        );
-
-      opacity: .30;
-
-      filter: blur(1px);
-    }
-
-    /* =====================================================
-       FLOATING PNG
-    ===================================================== */
-
-    .floating-person {
-      position: absolute;
-
-      left: 7%;
-
-      bottom: 5px;
-
-      z-index: 8;
-
-      width: 390px;
-
-      pointer-events: none;
-
-      filter:
+    filter:
         drop-shadow(0 35px 45px rgba(0,0,0,.75))
-        drop-shadow(0 0 35px rgba(0,145,255,.12));
+        drop-shadow(0 0 40px rgba(255,75,0,.11));
 
-      animation: personFloat 5s ease-in-out infinite;
+    animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
     }
 
-    @keyframes personFloat {
-      0%, 100% {
-        transform: translateY(0) rotate(-1deg);
-      }
-
-      50% {
-        transform: translateY(-13px) rotate(1deg);
-      }
+    50%{
+        transform:translateY(-12px);
     }
+}
 
-    /* =====================================================
-       SERVER SHOWCASE
-    ===================================================== */
+.image-glow{
+    position:absolute;
 
-    .server-card {
-      position: absolute;
+    width:280px;
+    height:100px;
 
-      right: 3%;
-      top: 25px;
+    bottom:35px;
 
-      z-index: 10;
+    border-radius:50%;
 
-      width: 370px;
+    background:rgba(255,72,0,.23);
 
-      overflow: hidden;
+    filter:blur(55px);
+}
 
-      border-radius: 23px;
+/* =========================================================
+   SMALL IMAGE LABEL
+========================================================= */
 
-      border: 1px solid rgba(255,255,255,.12);
+.image-label{
+    position:absolute;
 
-      background:
+    z-index:7;
+
+    bottom:50px;
+    right:15px;
+
+    padding:11px 13px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(10,8,7,.68);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
+
+.image-label span{
+    display:block;
+
+    color:#777069;
+
+    font-size:7px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
+}
+
+.image-label strong{
+    display:block;
+
+    margin-top:4px;
+
+    color:#fff;
+
+    font-size:10px;
+}
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+    padding:100px 0;
+}
+
+.section-heading{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+
+    margin-bottom:35px;
+}
+
+.section-kicker{
+    color:var(--orange);
+
+    font-size:9px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+}
+
+.section-title{
+    margin-top:8px;
+
+    font-size:34px;
+
+    letter-spacing:-1.8px;
+}
+
+.section-sub{
+    max-width:360px;
+
+    color:#777069;
+
+    font-size:10px;
+
+    line-height:1.7;
+
+    text-align:right;
+}
+
+/* =========================================================
+   SERVER SHOWCASE
+========================================================= */
+
+.server-layout{
+    display:grid;
+
+    grid-template-columns:1.3fr .7fr;
+
+    gap:18px;
+}
+
+.server-card{
+    overflow:hidden;
+
+    border-radius:22px;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    background:
         linear-gradient(
-          145deg,
-          rgba(15,20,28,.86),
-          rgba(4,8,13,.80)
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.018)
         );
 
-      box-shadow:
-        0 45px 100px rgba(0,0,0,.72),
-        0 0 70px rgba(0,120,255,.10),
-        inset 0 1px rgba(255,255,255,.08);
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.45);
 
-      backdrop-filter: blur(25px);
+    backdrop-filter:blur(22px);
+}
 
-      transform:
-        rotateX(2deg)
-        rotateY(-3deg);
+.server-banner{
+    height:245px;
 
-      transition: transform .5s ease;
-    }
+    position:relative;
 
-    .server-card:hover {
-      transform:
-        rotateX(0)
-        rotateY(0)
-        translateY(-5px);
-    }
-
-    /* Server banner */
-
-    .server-banner {
-      position: relative;
-
-      height: 135px;
-
-      overflow: hidden;
-
-      background:
+    background:
         linear-gradient(
-          135deg,
-          #0d1723,
-          #111c2b
-        );
-    }
-
-    .server-banner img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      opacity: .75;
-    }
-
-    .server-banner::after {
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-      background:
-        linear-gradient(
-          to bottom,
-          transparent 20%,
-          rgba(2,5,8,.75) 100%
-        );
-    }
-
-    /* Server icon */
-
-    .server-logo {
-      position: absolute;
-
-      z-index: 5;
-
-      left: 22px;
-      bottom: -31px;
-
-      width: 74px;
-      height: 74px;
-
-      padding: 4px;
-
-      border-radius: 21px;
-
-      background: #080b10;
-
-      border: 1px solid rgba(255,255,255,.12);
-
-      box-shadow:
-        0 15px 30px rgba(0,0,0,.55);
-    }
-
-    .server-logo img {
-      width: 100%;
-      height: 100%;
-
-      border-radius: 17px;
-
-      object-fit: cover;
-    }
-
-    .server-body {
-      padding: 48px 22px 22px;
-    }
-
-    .server-name-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 10px;
-    }
-
-    .server-name {
-      font-size: 19px;
-      font-weight: 700;
-
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .live {
-      flex-shrink: 0;
-
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-
-      color: #64e89b;
-
-      font-size: 9px;
-
-      padding: 5px 8px;
-
-      border-radius: 999px;
-
-      background: rgba(54,220,130,.07);
-
-      border: 1px solid rgba(54,220,130,.12);
-    }
-
-    .live-dot {
-      width: 5px;
-      height: 5px;
-
-      border-radius: 50%;
-
-      background: #48e892;
-
-      box-shadow: 0 0 9px rgba(72,232,146,.8);
-    }
-
-    .server-description {
-      margin-top: 10px;
-
-      min-height: 37px;
-
-      color: #7f8998;
-
-      font-size: 10px;
-
-      line-height: 1.7;
-    }
-
-    /* Stats */
-
-    .server-stats {
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 9px;
-
-      margin-top: 17px;
-    }
-
-    .stat {
-      padding: 13px;
-
-      border-radius: 12px;
-
-      border: 1px solid rgba(255,255,255,.06);
-
-      background: rgba(255,255,255,.025);
-    }
-
-    .stat-label {
-      color: #667181;
-
-      font-size: 8px;
-
-      text-transform: uppercase;
-
-      letter-spacing: 1px;
-    }
-
-    .stat-value {
-      margin-top: 5px;
-
-      color: #e9f6ff;
-
-      font-size: 16px;
-
-      font-weight: 700;
-    }
-
-    /* Join */
-
-    .join-button {
-      width: 100%;
-
-      height: 43px;
-
-      margin-top: 12px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-
-      color: white;
-
-      text-decoration: none;
-
-      font-size: 11px;
-      font-weight: 600;
-
-      border-radius: 11px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #247ff1,
-          #09a6c7
+            135deg,
+            #21140b,
+            #100b07
         );
 
-      border: 1px solid rgba(115,225,255,.25);
+    overflow:hidden;
+}
 
-      box-shadow:
-        0 10px 28px rgba(0,125,255,.16);
+.server-banner img{
+    width:100%;
+    height:100%;
 
-      transition: .3s ease;
+    object-fit:cover;
+
+    opacity:.76;
+}
+
+.server-banner::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 20%,
+            rgba(5,4,3,.9) 100%
+        );
+}
+
+.server-info{
+    position:relative;
+
+    padding:0 25px 25px;
+}
+
+.server-logo{
+    position:relative;
+
+    width:84px;
+    height:84px;
+
+    margin-top:-42px;
+
+    z-index:5;
+
+    padding:4px;
+
+    border-radius:22px;
+
+    background:#0b0907;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:0 20px 35px rgba(0,0,0,.5);
+}
+
+.server-logo img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:18px;
+}
+
+.server-top{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-top:17px;
+}
+
+.server-name{
+    font-size:22px;
+
+    font-weight:700;
+
+    letter-spacing:-.7px;
+}
+
+.live{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    padding:6px 9px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(255,106,0,.15);
+
+    background:rgba(255,106,0,.05);
+
+    color:#ff9955;
+
+    font-size:8px;
+}
+
+.live-dot{
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#ff7722;
+
+    box-shadow:0 0 9px #ff6a00;
+}
+
+.server-description{
+    max-width:650px;
+
+    margin-top:11px;
+
+    color:#827a73;
+
+    font-size:10px;
+
+    line-height:1.8;
+}
+
+.stats{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.stat{
+    padding:16px;
+
+    border-radius:13px;
+
+    border:1px solid rgba(255,255,255,.055);
+
+    background:rgba(255,255,255,.025);
+}
+
+.stat-label{
+    color:#69615b;
+
+    font-size:8px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.2px;
+}
+
+.stat-value{
+    margin-top:6px;
+
+    font-size:19px;
+
+    font-weight:700;
+}
+
+.join{
+    width:100%;
+
+    min-height:45px;
+
+    margin-top:10px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:11px;
+
+    background:linear-gradient(
+        135deg,
+        #ff6500,
+        #ff923e
+    );
+
+    color:#160a03;
+
+    font-size:10px;
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.join:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 15px 35px rgba(255,80,0,.18);
+}
+
+.sync{
+    margin-top:9px;
+
+    text-align:center;
+
+    color:#4f4944;
+
+    font-size:7px;
+}
+
+/* =========================================================
+   SIDE INFO
+========================================================= */
+
+.info-stack{
+    display:grid;
+
+    gap:18px;
+}
+
+.info-card{
+    min-height:150px;
+
+    padding:23px;
+
+    border-radius:19px;
+
+    border:1px solid rgba(255,255,255,.075);
+
+    background:rgba(255,255,255,.025);
+
+    backdrop-filter:blur(20px);
+
+    transition:.3s;
+}
+
+.info-card:hover{
+    transform:translateY(-4px);
+
+    border-color:rgba(255,120,40,.18);
+}
+
+.info-number{
+    color:var(--orange);
+
+    font-size:10px;
+}
+
+.info-card h3{
+    margin-top:12px;
+
+    font-size:16px;
+}
+
+.info-card p{
+    margin-top:9px;
+
+    color:#777069;
+
+    font-size:9px;
+
+    line-height:1.8;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:.7fr 1.3fr;
+
+    gap:20px;
+}
+
+.about-main{
+    min-height:320px;
+
+    padding:30px;
+
+    border-radius:21px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,106,0,.06),
+            rgba(255,255,255,.025)
+        );
+}
+
+.about-main h3{
+    font-size:26px;
+
+    line-height:1.25;
+
+    letter-spacing:-1px;
+}
+
+.about-main p{
+    margin-top:18px;
+
+    color:#827a73;
+
+    font-size:11px;
+
+    line-height:1.9;
+}
+
+.about-tag{
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:8px 10px;
+
+    border-radius:8px;
+
+    background:rgba(255,106,0,.07);
+
+    color:#ff9650;
+
+    font-size:8px;
+}
+
+.skills{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+}
+
+.skill{
+    padding:22px;
+
+    border-radius:17px;
+
+    border:1px solid rgba(255,255,255,.065);
+
+    background:rgba(255,255,255,.025);
+}
+
+.skill-icon{
+    width:31px;
+    height:31px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:9px;
+
+    background:rgba(255,106,0,.08);
+
+    color:#ff8738;
+
+    font-size:12px;
+}
+
+.skill h4{
+    margin-top:14px;
+
+    font-size:12px;
+}
+
+.skill p{
+    margin-top:7px;
+
+    color:#6f6862;
+
+    font-size:8px;
+
+    line-height:1.7;
+}
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.service-grid{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:12px;
+}
+
+.service{
+    min-height:170px;
+
+    padding:21px;
+
+    border-radius:17px;
+
+    border:1px solid rgba(255,255,255,.065);
+
+    background:rgba(255,255,255,.025);
+
+    transition:.3s;
+}
+
+.service:hover{
+    transform:translateY(-5px);
+
+    background:rgba(255,106,0,.045);
+
+    border-color:rgba(255,106,0,.18);
+}
+
+.service-num{
+    color:#514a45;
+
+    font-size:8px;
+}
+
+.service h3{
+    margin-top:40px;
+
+    font-size:13px;
+}
+
+.service p{
+    margin-top:7px;
+
+    color:#706962;
+
+    font-size:8px;
+
+    line-height:1.7;
+}
+
+/* =========================================================
+   COMMUNITY
+========================================================= */
+
+.community-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:14px;
+}
+
+.community{
+    padding:23px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.065);
+
+    background:rgba(255,255,255,.025);
+}
+
+.community-left{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.community-icon{
+    width:48px;
+    height:48px;
+
+    border-radius:14px;
+
+    object-fit:cover;
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.community h3{
+    font-size:12px;
+}
+
+.community p{
+    margin-top:5px;
+
+    color:#6f6862;
+
+    font-size:8px;
+}
+
+.community-link{
+    width:35px;
+    height:35px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:10px;
+
+    background:rgba(255,106,0,.07);
+
+    color:#ff8a3b;
+
+    font-size:11px;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact{
+    position:relative;
+
+    padding:55px;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,106,0,.09),
+            rgba(255,255,255,.025)
+        );
+
+    text-align:center;
+}
+
+.contact::before{
+    content:"";
+
+    position:absolute;
+
+    width:400px;
+    height:200px;
+
+    left:50%;
+    bottom:-160px;
+
+    transform:translateX(-50%);
+
+    background:rgba(255,82,0,.3);
+
+    filter:blur(80px);
+}
+
+.contact h2{
+    position:relative;
+
+    font-size:35px;
+
+    letter-spacing:-2px;
+}
+
+.contact p{
+    position:relative;
+
+    max-width:500px;
+
+    margin:15px auto 0;
+
+    color:#827a73;
+
+    font-size:10px;
+
+    line-height:1.8;
+}
+
+.contact-buttons{
+    position:relative;
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:9px;
+
+    flex-wrap:wrap;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+    padding:30px 0 35px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    border-top:1px solid rgba(255,255,255,.055);
+
+    color:#514b46;
+
+    font-size:8px;
+}
+
+.footer strong{
+    color:#8b827a;
+}
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:950px){
+
+    .hero{
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        padding-top:70px;
     }
 
-    .join-button:hover {
-      transform: translateY(-2px);
-
-      box-shadow:
-        0 15px 38px rgba(0,125,255,.27);
+    .hero-left{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
     }
 
-    .sync {
-      margin-top: 10px;
-
-      text-align: center;
-
-      color: #4e5968;
-
-      font-size: 8px;
+    .hero-right{
+        height:500px;
     }
 
-    /* =====================================================
-       FOOTER
-    ===================================================== */
-
-    footer {
-      width: min(1180px, calc(100% - 42px));
-
-      margin: auto;
-
-      padding: 28px 0 35px;
-
-      display: flex;
-      justify-content: space-between;
-
-      border-top: 1px solid rgba(255,255,255,.05);
-
-      color: #515c6c;
-
-      font-size: 10px;
+    .server-layout{
+        grid-template-columns:1fr;
     }
 
-    footer strong {
-      color: #9aa6b5;
+    .service-grid{
+        grid-template-columns:1fr 1fr;
     }
 
-    /* =====================================================
-       MOBILE
-    ===================================================== */
-
-    @media (max-width: 900px) {
-
-      .hero {
-        min-height: auto;
-      }
-
-      .visual {
-        min-height: 730px;
-
-        margin-top: 55px;
-      }
-
-      .floating-person {
-        left: 50%;
-        bottom: 0;
-
-        width: 330px;
-
-        transform: translateX(-50%);
-      }
-
-      @keyframes personFloat {
-        0%, 100% {
-          transform: translateX(-50%) translateY(0);
-        }
-
-        50% {
-          transform: translateX(-50%) translateY(-10px);
-        }
-      }
-
-      .server-card {
-        right: 50%;
-        top: 0;
-
-        transform: translateX(50%);
-      }
-
-      .server-card:hover {
-        transform: translateX(50%) translateY(-5px);
-      }
-
-      .back-card {
-        width: 85%;
-      }
+    .about-grid{
+        grid-template-columns:1fr;
     }
 
-    @media (max-width: 550px) {
-
-      nav,
-      .hero,
-      footer {
-        width: calc(100% - 28px);
-      }
-
-      .status-wrap {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 55px;
-      }
-
-      h1 {
-        font-size: 48px;
-        letter-spacing: -3px;
-      }
-
-      .description {
-        font-size: 12px;
-      }
-
-      .buttons {
-        width: 100%;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .visual {
-        min-height: 650px;
-      }
-
-      .server-card {
-        width: min(350px, 94vw);
-      }
-
-      .floating-person {
-        width: 270px;
-      }
-
-      .back-card {
-        display: none;
-      }
-
-      footer {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-      }
+    .section-sub{
+        text-align:left;
     }
-  </style>
+}
+
+@media(max-width:650px){
+
+    .container{
+        width:calc(100% - 28px);
+    }
+
+    .nav{
+        height:72px;
+    }
+
+    .nav-right{
+        display:none;
+    }
+
+    .hero{
+        padding:65px 0 70px;
+
+        gap:20px;
+    }
+
+    .hero h1{
+        font-size:50px;
+
+        letter-spacing:-3.5px;
+    }
+
+    .hero-description{
+        font-size:11px;
+    }
+
+    .hero-buttons{
+        width:100%;
+
+        flex-direction:column;
+    }
+
+    .hero-buttons .btn{
+        width:100%;
+    }
+
+    .hero-right{
+        height:440px;
+    }
+
+    .profile{
+        width:350px;
+    }
+
+    .hero-ring{
+        width:320px;
+        height:320px;
+    }
+
+    .hero-orb{
+        width:300px;
+        height:300px;
+    }
+
+    .image-label{
+        right:0;
+        bottom:20px;
+    }
+
+    .section{
+        padding:70px 0;
+    }
+
+    .section-heading{
+        display:block;
+    }
+
+    .section-sub{
+        margin-top:12px;
+    }
+
+    .server-banner{
+        height:190px;
+    }
+
+    .server-top{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:9px;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .skills{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .service-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .community-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact{
+        padding:40px 20px;
+    }
+
+    .contact h2{
+        font-size:29px;
+    }
+
+    .footer{
+        flex-direction:column;
+
+        gap:8px;
+
+        text-align:center;
+    }
+}
+
+@media(max-width:400px){
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .profile{
+        width:300px;
+    }
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- =====================================================
-       BACKGROUND
-  ====================================================== -->
+<!-- =========================================================
+     BACKGROUND
+========================================================= -->
 
-  <div class="background"></div>
+<div class="page-bg">
 
-  <div class="particles">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+    <div class="glow three"></div>
 
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
+</div>
 
-  </div>
+<div class="grain"></div>
 
 
-  <!-- =====================================================
-       NAV
-  ====================================================== -->
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
 
-  <nav>
+<header class="container">
 
-    <a href="#" class="brand">
+<nav class="nav">
 
-      <div class="brand-icon">
-        <span class="brand-letter">H</span>
-      </div>
+    <a href="#" class="logo">
 
-      Hridoy Hasan
+        <img
+            id="navLogo"
+            class="logo-image"
+            alt="Profile"
+        >
+
+        <span>HRIDOY HASAN</span>
 
     </a>
 
 
-    <div class="status-wrap">
+    <div class="nav-right">
 
-      <span class="status-dot"></span>
-
-      Available for work
-
-    </div>
-
-  </nav>
-
-
-  <!-- =====================================================
-       HERO
-  ====================================================== -->
-
-  <main>
-
-    <section class="hero">
-
-      <div class="eyebrow">
-        <span>●</span>
-        Discord Founder · Digital Creator
-      </div>
-
-
-      <h1>
-        Building
-        <span class="gradient">digital communities.</span>
-      </h1>
-
-
-      <!-- YOUR DESCRIPTION -->
-
-      <p class="description">
-        Discord Founder and Digital Creator focused on building
-        communities, managing digital services and creating
-        premium online experiences.
-      </p>
-
-
-      <!-- =================================================
-           TWO MAIN BUTTONS
-      ================================================== -->
-
-      <div class="buttons">
-
-        <!-- SHOP SERVER LINK -->
-
-        <a
-          href="https://discord.gg/YOUR-SHOP-SERVER"
-          target="_blank"
-          class="btn primary"
-        >
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.6"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M6 8h12l1 12H5L6 8Z"/>
-            <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
-          </svg>
-
-          SHOP SERVER
-
+        <a href="#about" class="nav-link">
+            About
         </a>
 
-
-        <!-- NOBOGOTO LINK -->
-
-        <a
-          href="https://discord.gg/vYhcdSUdnG"
-          target="_blank"
-          class="btn"
-        >
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.6"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20"/>
-            <circle cx="9.5" cy="7" r="3"/>
-            <path d="M17 11a3 3 0 1 0-1-5.8"/>
-            <path d="M21 20v-1.5a4 4 0 0 0-3-3.87"/>
-          </svg>
-
-          NOBOGOTO
-
+        <a href="#services" class="nav-link">
+            Services
         </a>
 
-      </div>
+        <a href="#community" class="nav-link">
+            Community
+        </a>
 
+        <div class="nav-status">
 
-      <!-- =================================================
-           MAIN VISUAL
-      ================================================== -->
+            <span class="status-dot"></span>
 
-      <div class="visual">
-
-        <!-- Background depth layer -->
-
-        <div class="back-card"></div>
-
-
-        <!-- =================================================
-             YOUR PNG PHOTO
-
-             Put your transparent PNG in same folder:
-
-             profile.png
-
-             Example:
-             index.html
-             profile.png
-        ================================================== -->
-
-        <img
-          src="profile.png"
-          alt="Hridoy Hasan"
-          class="floating-person"
-        >
-
-
-        <!-- =================================================
-             DISCORD SERVER SHOWCASE
-        ================================================== -->
-
-        <div class="server-card">
-
-          <!-- SERVER BANNER -->
-
-          <div class="server-banner">
-
-            <img
-              id="serverBanner"
-              src=""
-              alt="Discord Server Banner"
-              style="display:none;"
-            >
-
-          </div>
-
-
-          <!-- SERVER LOGO -->
-
-          <div class="server-logo">
-
-            <img
-              id="serverIcon"
-              src=""
-              alt="Server Icon"
-            >
-
-          </div>
-
-
-          <div class="server-body">
-
-            <div class="server-name-row">
-
-              <div
-                class="server-name"
-                id="serverName"
-              >
-                Loading server...
-              </div>
-
-              <div class="live">
-
-                <span class="live-dot"></span>
-
-                LIVE
-
-              </div>
-
-            </div>
-
-
-            <p
-              class="server-description"
-              id="serverDescription"
-            >
-              Loading server information...
-            </p>
-
-
-            <!-- SERVER STATS -->
-
-            <div class="server-stats">
-
-              <div class="stat">
-
-                <div class="stat-label">
-                  Online
-                </div>
-
-                <div
-                  class="stat-value"
-                  id="onlineCount"
-                >
-                  —
-                </div>
-
-              </div>
-
-
-              <div class="stat">
-
-                <div class="stat-label">
-                  Members
-                </div>
-
-                <div
-                  class="stat-value"
-                  id="memberCount"
-                >
-                  —
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <!-- JOIN SERVER -->
-
-            <a
-              id="joinServer"
-              href="#"
-              target="_blank"
-              class="join-button"
-            >
-
-              <svg
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.7"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M16 3h5v5"/>
-                <path d="M10 14 21 3"/>
-                <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/>
-              </svg>
-
-              JOIN SERVER
-
-            </a>
-
-
-            <div
-              class="sync"
-              id="syncStatus"
-            >
-              Syncing server data...
-            </div>
-
-          </div>
+            Available
 
         </div>
 
-      </div>
+    </div>
 
-    </section>
+</nav>
 
-  </main>
+</header>
 
 
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-  <footer>
+<main>
+
+<section class="container hero">
+
+    <div class="hero-left reveal">
+
+        <div class="eyebrow">
+
+            <i></i>
+
+            DISCORD FOUNDER · DIGITAL CREATOR
+
+        </div>
+
+
+        <h1>
+
+            Building
+
+            <span class="orange-text">
+                digital
+            </span>
+
+            communities.
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            I build communities, manage digital projects and
+            create premium online experiences around Discord
+            and digital services.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                id="shopButton"
+                href="#"
+                target="_blank"
+                class="btn primary"
+            >
+                SHOP SERVER
+            </a>
+
+
+            <a
+                id="nobogotoButton"
+                href="#"
+                target="_blank"
+                class="btn"
+            >
+                NOBOGOTO
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- PHOTO -->
+
+    <div class="hero-right reveal">
+
+        <div class="hero-orb"></div>
+
+        <div class="hero-ring"></div>
+
+        <div class="image-glow"></div>
+
+
+        <img
+            id="profileHero"
+            class="profile"
+            alt="Hridoy Hasan"
+        >
+
+
+        <div class="image-label">
+
+            <span>Creator</span>
+
+            <strong>Hridoy Hasan</strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVER SHOWCASE
+========================================================= -->
+
+<section class="container section" id="showcase">
+
+    <div class="section-heading reveal">
+
+        <div>
+
+            <div class="section-kicker">
+                Featured Community
+            </div>
+
+            <h2 class="section-title">
+                Server Showcase
+            </h2>
+
+        </div>
+
+
+        <p class="section-sub">
+
+            A live preview of one of my Discord communities,
+            automatically synchronized with the server invite.
+
+        </p>
+
+    </div>
+
+
+    <div class="server-layout">
+
+
+        <!-- SERVER -->
+
+        <div class="server-card reveal">
+
+
+            <div class="server-banner">
+
+                <img
+                    id="serverBanner"
+                    alt="Discord Server Banner"
+                >
+
+            </div>
+
+
+            <div class="server-info">
+
+
+                <div class="server-logo">
+
+                    <img
+                        id="serverIcon"
+                        alt="Server Icon"
+                    >
+
+                </div>
+
+
+                <div class="server-top">
+
+                    <h3
+                        id="serverName"
+                        class="server-name"
+                    >
+                        Loading...
+                    </h3>
+
+
+                    <div class="live">
+
+                        <span class="live-dot"></span>
+
+                        LIVE
+
+                    </div>
+
+                </div>
+
+
+                <p
+                    id="serverDescription"
+                    class="server-description"
+                >
+                    Loading server information...
+
+                </p>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <div class="stat-label">
+                            Online
+                        </div>
+
+                        <div
+                            id="onlineCount"
+                            class="stat-value"
+                        >
+                            —
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div class="stat-label">
+                            Members
+                        </div>
+
+                        <div
+                            id="memberCount"
+                            class="stat-value"
+                        >
+                            —
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    id="joinServer"
+                    href="#"
+                    target="_blank"
+                    class="join"
+                >
+                    JOIN SERVER
+                </a>
+
+
+                <div
+                    id="syncStatus"
+                    class="sync"
+                >
+                    Syncing...
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SIDE INFO -->
+
+        <div class="info-stack">
+
+
+            <div class="info-card reveal">
+
+                <div class="info-number">
+                    01
+                </div>
+
+                <h3>
+                    Community First
+                </h3>
+
+                <p>
+                    Building organized and welcoming Discord
+                    communities with a strong identity.
+                </p>
+
+            </div>
+
+
+            <div class="info-card reveal">
+
+                <div class="info-number">
+                    02
+                </div>
+
+                <h3>
+                    Digital Services
+                </h3>
+
+                <p>
+                    Premium digital services designed around
+                    modern online communities.
+                </p>
+
+            </div>
+
+
+            <div class="info-card reveal">
+
+                <div class="info-number">
+                    03
+                </div>
+
+                <h3>
+                    Always Evolving
+                </h3>
+
+                <p>
+                    Constantly experimenting with better ideas,
+                    experiences and community systems.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section
+    class="container section"
+    id="about"
+>
+
+    <div class="section-heading reveal">
+
+        <div>
+
+            <div class="section-kicker">
+                About Me
+            </div>
+
+            <h2 class="section-title">
+                Behind the screen.
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="about-grid">
+
+
+        <div class="about-main reveal">
+
+            <h3>
+                Turning online spaces
+                into communities.
+            </h3>
+
+
+            <p>
+
+                I'm focused on Discord communities, digital
+                services and creative online projects. My goal
+                is simple — make digital spaces feel organized,
+                unique and genuinely enjoyable.
+
+            </p>
+
+
+            <span class="about-tag">
+                DISCORD · DIGITAL · COMMUNITY
+            </span>
+
+        </div>
+
+
+        <div class="skills">
+
+
+            <div class="skill reveal">
+
+                <div class="skill-icon">
+                    01
+                </div>
+
+                <h4>
+                    Community Building
+                </h4>
+
+                <p>
+                    Designing and growing organized online
+                    communities.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <div class="skill-icon">
+                    02
+                </div>
+
+                <h4>
+                    Discord Management
+                </h4>
+
+                <p>
+                    Server structure, roles, systems and
+                    community experience.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <div class="skill-icon">
+                    03
+                </div>
+
+                <h4>
+                    Digital Projects
+                </h4>
+
+                <p>
+                    Building useful digital products and
+                    experiences.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <div class="skill-icon">
+                    04
+                </div>
+
+                <h4>
+                    Creative Direction
+                </h4>
+
+                <p>
+                    Creating unique visual identities for
+                    digital communities.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section
+    class="container section"
+    id="services"
+>
+
+    <div class="section-heading reveal">
+
+        <div>
+
+            <div class="section-kicker">
+                What I Do
+            </div>
+
+            <h2 class="section-title">
+                Services & Projects
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="service-grid">
+
+
+        <div class="service reveal">
+
+            <div class="service-num">
+                01
+            </div>
+
+            <h3>
+                Discord Servers
+            </h3>
+
+            <p>
+                Community setup, structure, branding and
+                management.
+            </p>
+
+        </div>
+
+
+        <div class="service reveal">
+
+            <div class="service-num">
+                02
+            </div>
+
+            <h3>
+                Digital Services
+            </h3>
+
+            <p>
+                Curated digital products and subscription
+                services.
+            </p>
+
+        </div>
+
+
+        <div class="service reveal">
+
+            <div class="service-num">
+                03
+            </div>
+
+            <h3>
+                Server Systems
+            </h3>
+
+            <p>
+                Bots, moderation systems, automation and
+                community tools.
+            </p>
+
+        </div>
+
+
+        <div class="service reveal">
+
+            <div class="service-num">
+                04
+            </div>
+
+            <h3>
+                Creative Projects
+            </h3>
+
+            <p>
+                Digital concepts, branding and unique online
+                experiences.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     COMMUNITY
+========================================================= -->
+
+<section
+    class="container section"
+    id="community"
+>
+
+    <div class="section-heading reveal">
+
+        <div>
+
+            <div class="section-kicker">
+                My Communities
+            </div>
+
+            <h2 class="section-title">
+                Places I build.
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="community-grid">
+
+
+        <div class="community reveal">
+
+            <div class="community-left">
+
+                <img
+                    id="communityLogo1"
+                    class="community-icon"
+                    alt="Shop"
+                >
+
+                <div>
+
+                    <h3>
+                        Shop Server
+                    </h3>
+
+                    <p>
+                        Digital services & community
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <a
+                id="communityLink1"
+                href="#"
+                target="_blank"
+                class="community-link"
+            >
+                ↗
+            </a>
+
+        </div>
+
+
+        <div class="community reveal">
+
+            <div class="community-left">
+
+                <img
+                    id="communityLogo2"
+                    class="community-icon"
+                    alt="NOBOGOTO"
+                >
+
+                <div>
+
+                    <h3>
+                        NOBOGOTO
+                    </h3>
+
+                    <p>
+                        Community & Hangout
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <a
+                id="communityLink2"
+                href="#"
+                target="_blank"
+                class="community-link"
+            >
+                ↗
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section class="container section">
+
+    <div class="contact reveal">
+
+        <h2>
+            Let's build something
+            <span class="orange-text">
+                different.
+            </span>
+        </h2>
+
+
+        <p>
+            Interested in working together, joining a community
+            or checking out my digital projects?
+        </p>
+
+
+        <div class="contact-buttons">
+
+            <a
+                id="contactShop"
+                href="#"
+                target="_blank"
+                class="btn primary"
+            >
+                VISIT SHOP
+            </a>
+
+
+            <a
+                id="contactCommunity"
+                href="#"
+                target="_blank"
+                class="btn"
+            >
+                JOIN NOBOGOTO
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="container footer">
 
     <div>
-      © 2026 <strong>Hridoy Hasan</strong>
+        © 2026 <strong>Hridoy Hasan</strong>
     </div>
 
     <div>
-      Discord Founder · Digital Creator
+        Discord Founder · Digital Creator
     </div>
 
-  </footer>
+</footer>
 
 
-  <!-- =====================================================
-       JAVASCRIPT
-  ====================================================== -->
+<script>
 
-  <script>
+/* =========================================================
+   CONFIG
+   ========================================================= */
 
-    /*
-    ========================================================
-    CONFIGURATION
-    ========================================================
+/*
+   শুধু এই ৪টা জিনিস change করবে।
 
-    Put your permanent Discord invite here.
+   PROFILE_IMAGE:
+   তোমার PNG/JPG image URL.
 
-    Example:
+   Example:
+   https://i.imgur.com/example.png
 
-    https://discord.gg/abcdef
+   অথবা নিজের hosting:
+   https://yourwebsite.com/photo.png
+*/
 
-    IMPORTANT:
-    This frontend-only version uses Discord's public
-    invite/widget endpoints where available.
-
-    For guaranteed live online/member counts, Discord
-    requires a backend/bot with appropriate permissions.
-    ========================================================
-    */
-
-    const SHOP_INVITE =
-      "https://discord.gg/YOUR-SHOP-SERVER";
-
-    const NOBOGOTO_INVITE =
-      "https://discord.gg/vYhcdSUdnG";
+const PROFILE_IMAGE =
+    "https://YOUR-IMAGE-URL.com/profile.png";
 
 
-    /*
-    ========================================================
-    WHICH SERVER TO SHOW
-    ========================================================
-    */
+/*
+   SHOP SERVER
+*/
 
-    const SHOWCASE_INVITE = "https://discord.gg/vYhcdSUdnG";
+const SHOP_INVITE =
+    "https://discord.gg/YOUR-SHOP";
 
 
-    /*
-    ========================================================
-    EXTRACT INVITE CODE
-    ========================================================
-    */
+/*
+   NOBOGOTO SERVER
+*/
 
-    function getInviteCode(url) {
+const NOBOGOTO_INVITE =
+    "https://discord.gg/vYhcdSUdnG";
 
-      try {
 
-        const parsed = new URL(url);
+/*
+   SERVER SHOWCASE
+
+   যে server-এর information card-এ দেখাবে
+*/
+
+const SHOWCASE_INVITE =
+    "https://discord.gg/vYhcdSUdnG";
+
+
+/* =========================================================
+   IMAGE SETUP
+========================================================= */
+
+document.getElementById("navLogo").src =
+    PROFILE_IMAGE;
+
+document.getElementById("profileHero").src =
+    PROFILE_IMAGE;
+
+document.getElementById("communityLogo1").src =
+    PROFILE_IMAGE;
+
+document.getElementById("communityLogo2").src =
+    PROFILE_IMAGE;
+
+
+/* =========================================================
+   BUTTON LINKS
+========================================================= */
+
+document.getElementById("shopButton").href =
+    SHOP_INVITE;
+
+document.getElementById("nobogotoButton").href =
+    NOBOGOTO_INVITE;
+
+document.getElementById("communityLink1").href =
+    SHOP_INVITE;
+
+document.getElementById("communityLink2").href =
+    NOBOGOTO_INVITE;
+
+document.getElementById("contactShop").href =
+    SHOP_INVITE;
+
+document.getElementById("contactCommunity").href =
+    NOBOGOTO_INVITE;
+
+
+/* =========================================================
+   DISCORD INVITE CODE
+========================================================= */
+
+function getInviteCode(url){
+
+    try{
+
+        const parsed =
+            new URL(url);
 
         const parts =
-          parsed.pathname
-            .split("/")
-            .filter(Boolean);
+            parsed.pathname
+                .split("/")
+                .filter(Boolean);
 
-        return parts[parts.length - 1] || "";
+        return parts[parts.length - 1];
 
-      } catch {
+    }catch{
 
         return "";
 
-      }
-
     }
 
+}
 
-    /*
-    ========================================================
-    FORMAT NUMBERS
-    ========================================================
-    */
 
-    function formatNumber(number) {
+/* =========================================================
+   NUMBER FORMAT
+========================================================= */
 
-      if (
+function formatNumber(number){
+
+    if(
         number === null ||
         number === undefined ||
         Number.isNaN(number)
-      ) {
+    ){
         return "—";
-      }
+    }
 
-      return Number(number).toLocaleString();
+    return Number(number).toLocaleString();
+
+}
+
+
+/* =========================================================
+   LOAD DISCORD SERVER
+========================================================= */
+
+async function loadServer(){
+
+    const code =
+        getInviteCode(SHOWCASE_INVITE);
+
+    const sync =
+        document.getElementById("syncStatus");
+
+    if(!code){
+
+        sync.textContent =
+            "Invalid Discord invite.";
+
+        return;
 
     }
 
 
-    /*
-    ========================================================
-    SERVER DATA
-    ========================================================
-    */
-
-    async function loadServer() {
-
-      const code =
-        getInviteCode(SHOWCASE_INVITE);
-
-
-      const sync =
-        document.getElementById("syncStatus");
-
-
-      if (!code) {
-
-        sync.textContent =
-          "Invalid Discord invite.";
-
-        return;
-
-      }
-
-
-      /*
-      Discord public invite endpoint.
-
-      This can expose invite preview information
-      when Discord makes that information available.
-      */
-
-      try {
+    try{
 
         const response =
-          await fetch(
-            `https://discord.com/api/v10/invites/${encodeURIComponent(code)}?with_counts=true&with_expiration=true`,
-            {
-              method: "GET",
-              headers: {
-                "Accept": "application/json"
-              }
-            }
-          );
+            await fetch(
+                "https://discord.com/api/v10/invites/"
+                +
+                encodeURIComponent(code)
+                +
+                "?with_counts=true"
+            );
 
 
-        if (!response.ok) {
+        if(!response.ok){
 
-          throw new Error(
-            "Discord API request failed"
-          );
+            throw new Error(
+                "Discord API unavailable"
+            );
 
         }
 
 
         const data =
-          await response.json();
+            await response.json();
 
 
-        /*
-        SERVER NAME
-        */
-
-        const serverName =
-          data.guild?.name ||
-          "Discord Server";
-
+        /* SERVER NAME */
 
         document.getElementById(
-          "serverName"
+            "serverName"
         ).textContent =
-          serverName;
+            data.guild?.name ||
+            "Discord Server";
 
 
-        /*
-        SERVER DESCRIPTION
-
-        Discord's invite response does not always
-        include a full server description.
-        */
-
-        const description =
-          data.guild?.description ||
-          "Join our Discord community and connect with the community.";
-
+        /* DESCRIPTION */
 
         document.getElementById(
-          "serverDescription"
+            "serverDescription"
         ).textContent =
-          description;
+            data.guild?.description ||
+            "Join our Discord community and connect with everyone.";
 
 
-        /*
-        SERVER ICON
-        */
+        /* SERVER ICON */
 
-        const icon =
-          data.guild?.icon;
+        if(
+            data.guild?.id &&
+            data.guild?.icon
+        ){
 
+            const icon =
+                data.guild.icon;
 
-        if (icon) {
+            const extension =
+                icon.startsWith("a_")
+                    ? "gif"
+                    : "png";
 
-          const extension =
-            icon.startsWith("a_")
-              ? "gif"
-              : "png";
-
-
-          document.getElementById(
-            "serverIcon"
-          ).src =
-            `https://cdn.discordapp.com/icons/${data.guild.id}/${icon}.${extension}?size=256`;
+            document.getElementById(
+                "serverIcon"
+            ).src =
+                `https://cdn.discordapp.com/icons/${data.guild.id}/${icon}.${extension}?size=256`;
 
         }
 
 
-        /*
-        SERVER BANNER
+        /* SERVER BANNER */
 
-        Banner may not always be available
-        through invite preview.
-        */
+        if(
+            data.guild?.id &&
+            data.guild?.banner
+        ){
 
-        const banner =
-          data.guild?.banner;
-
-
-        const bannerElement =
-          document.getElementById(
-            "serverBanner"
-          );
-
-
-        if (banner) {
-
-          bannerElement.src =
-            `https://cdn.discordapp.com/banners/${data.guild.id}/${banner}.png?size=1024`;
-
-          bannerElement.style.display =
-            "block";
+            document.getElementById(
+                "serverBanner"
+            ).src =
+                `https://cdn.discordapp.com/banners/${data.guild.id}/${data.guild.banner}.png?size=1024`;
 
         }
 
 
-        /*
-        MEMBER COUNTS
-
-        Discord may return approximate counts
-        for public invite previews.
-        */
+        /* ONLINE */
 
         document.getElementById(
-          "onlineCount"
+            "onlineCount"
         ).textContent =
-          formatNumber(
-            data.approximate_presence_count
-          );
+            formatNumber(
+                data.approximate_presence_count
+            );
 
+
+        /* MEMBERS */
 
         document.getElementById(
-          "memberCount"
+            "memberCount"
         ).textContent =
-          formatNumber(
-            data.approximate_member_count
-          );
+            formatNumber(
+                data.approximate_member_count
+            );
 
 
-        /*
-        JOIN BUTTON
-        */
+        /* JOIN */
 
         document.getElementById(
-          "joinServer"
+            "joinServer"
         ).href =
-          SHOWCASE_INVITE;
+            SHOWCASE_INVITE;
 
 
-        /*
-        SYNC STATUS
-        */
-
-        const now =
-          new Date();
-
+        /* SYNC */
 
         sync.textContent =
-          "Last synced " +
-          now.toLocaleTimeString();
+            "Last synced " +
+            new Date().toLocaleTimeString();
 
 
-      } catch (error) {
+    }catch(error){
 
-        console.error(error);
-
-
-        document.getElementById(
-          "serverName"
-        ).textContent =
-          "Discord Server";
-
-
-        document.getElementById(
-          "serverDescription"
-        ).textContent =
-          "Join our Discord community.";
-
-
-        document.getElementById(
-          "onlineCount"
-        ).textContent =
-          "—";
-
-
-        document.getElementById(
-          "memberCount"
-        ).textContent =
-          "—";
-
-
-        document.getElementById(
-          "joinServer"
-        ).href =
-          SHOWCASE_INVITE;
-
+        console.log(error);
 
         sync.textContent =
-          "Live data unavailable";
-
-
-      }
+            "Server preview temporarily unavailable.";
 
     }
 
-
-    /*
-    ========================================================
-    INITIAL LOAD
-    ========================================================
-    */
-
-    loadServer();
+}
 
 
-    /*
-    ========================================================
-    AUTO SYNC EVERY 10 SECONDS
-    ========================================================
-    */
+/* =========================================================
+   INITIAL SERVER LOAD
+========================================================= */
 
-    setInterval(
-      loadServer,
-      10000
+loadServer();
+
+
+/* =========================================================
+   AUTO SYNC — 10 SECONDS
+========================================================= */
+
+setInterval(
+    loadServer,
+    10000
+);
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add(
+                            "show"
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold:.12
+        }
     );
 
 
-    /*
-    ========================================================
-    MOUSE PARALLAX
-    ========================================================
-    */
-
-    const visual =
-      document.querySelector(".visual");
-
-    const person =
-      document.querySelector(".floating-person");
-
-    const server =
-      document.querySelector(".server-card");
+document
+    .querySelectorAll(".reveal")
+    .forEach(
+        element => observer.observe(element)
+    );
 
 
-    document.addEventListener(
-      "mousemove",
-      function(event) {
+/* =========================================================
+   MOUSE PARALLAX
+========================================================= */
 
-        if (
-          window.innerWidth <= 900
-        ) {
-          return;
+const profile =
+    document.getElementById(
+        "profileHero"
+    );
+
+const heroRight =
+    document.querySelector(
+        ".hero-right"
+    );
+
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        if(
+            window.innerWidth < 900
+        ){
+            return;
         }
 
 
         const x =
-          (event.clientX /
-            window.innerWidth) - .5;
-
+            (event.clientX /
+            window.innerWidth - .5);
 
         const y =
-          (event.clientY /
-            window.innerHeight) - .5;
+            (event.clientY /
+            window.innerHeight - .5);
 
 
-        /*
-        Person moves slightly.
-        */
+        profile.style.transform =
+            `
+            translate(
+                ${x * 9}px,
+                ${y * 9 - 5}px
+            )
+            `;
 
-        person.style.marginLeft =
-          `${x * 14}px`;
-
-        person.style.marginBottom =
-          `${y * -10}px`;
+    }
+);
 
 
-        /*
-        Server card moves opposite direction.
-        */
+/* =========================================================
+   IMAGE ERROR FALLBACK
+========================================================= */
 
-        server.style.transform =
-          `
-          rotateX(${y * -3}deg)
-          rotateY(${x * -4 - 3}deg)
-          translate(${x * -8}px, ${y * -5}px)
-          `;
+document
+    .getElementById("navLogo")
+    .addEventListener(
+        "error",
+        function(){
 
-      }
+            this.style.display =
+                "none";
+
+        }
     );
 
-
-    /*
-    ========================================================
-    RESET ON MOUSE LEAVE
-    ========================================================
-    */
-
-    document.addEventListener(
-      "mouseleave",
-      function() {
-
-        person.style.marginLeft =
-          "0px";
-
-        person.style.marginBottom =
-          "0px";
-
-        server.style.transform =
-          "rotateX(2deg) rotateY(-3deg)";
-
-      }
-    );
-
-  </script>
+</script>
 
 </body>
   </html>
