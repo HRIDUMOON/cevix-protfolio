@@ -7,7 +7,7 @@
 <title>Hridoy Hasan — Digital Creator</title>
 
 <meta name="description"
-content="Hridoy Hasan — Discord Founder, Community Builder & Digital Creator.">
+content="Hridoy Hasan — Discord Founder, Community Builder & Digital Creator">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +15,29 @@ content="Hridoy Hasan — Discord Founder, Community Builder & Digital Creator."
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+    --bg:#080706;
+    --bg2:#0d0a08;
+
+    --white:#fff;
+    --text:#eee9e4;
+    --muted:#8b827b;
+    --muted2:#5d5650;
+
+    --orange:#ff6800;
+    --orange2:#ff8f3d;
+    --orange3:#ffb36d;
+
+    --border:rgba(255,255,255,.085);
+    --glass:rgba(255,255,255,.035);
+}
+
+
 /* =========================================================
    RESET
 ========================================================= */
@@ -30,9 +53,17 @@ html{
 }
 
 body{
+    min-height:100vh;
+
     background:#080706;
-    color:#fff;
-    font-family:Inter,Arial,sans-serif;
+
+    color:var(--text);
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
     overflow-x:hidden;
 }
 
@@ -41,90 +72,85 @@ a{
     text-decoration:none;
 }
 
-button{
-    font-family:inherit;
+img{
+    display:block;
 }
 
-/* =========================================================
-   COLORS
-========================================================= */
-
-:root{
-    --bg:#080706;
-    --bg2:#0d0a08;
-
-    --white:#ffffff;
-    --soft:#ddd5ce;
-    --muted:#918981;
-
-    --orange:#ff6a00;
-    --orange2:#ff8c32;
-    --amber:#ffb566;
-
-    --border:rgba(255,255,255,.09);
-    --glass:rgba(255,255,255,.035);
-}
 
 /* =========================================================
    BACKGROUND
 ========================================================= */
 
-.page-bg{
+.background{
     position:fixed;
+
     inset:0;
-    z-index:-10;
+
+    z-index:-20;
+
     overflow:hidden;
+
     background:
+
         radial-gradient(
-            circle at 8% 12%,
-            rgba(255,106,0,.14),
-            transparent 27%
+            circle at 8% 10%,
+            rgba(255,90,0,.16),
+            transparent 28%
         ),
+
         radial-gradient(
-            circle at 92% 26%,
-            rgba(255,130,45,.08),
+            circle at 92% 22%,
+            rgba(255,130,50,.08),
             transparent 25%
         ),
+
         radial-gradient(
-            ellipse at 50% 105%,
-            rgba(255,91,0,.24),
-            transparent 48%
+            ellipse at 50% 110%,
+            rgba(255,75,0,.25),
+            transparent 50%
         ),
+
         #080706;
 }
 
-.glow{
+
+.background::before{
+    content:"";
+
     position:absolute;
+
+    width:650px;
+    height:650px;
+
+    left:-300px;
+    top:30%;
+
     border-radius:50%;
-    filter:blur(100px);
-    pointer-events:none;
+
+    background:rgba(255,80,0,.09);
+
+    filter:blur(130px);
 }
 
-.glow.one{
-    width:500px;
-    height:500px;
-    left:-220px;
-    top:15%;
-    background:rgba(255,80,0,.12);
+
+.background::after{
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    right:-350px;
+    bottom:0;
+
+    border-radius:50%;
+
+    background:rgba(255,110,30,.07);
+
+    filter:blur(140px);
 }
 
-.glow.two{
-    width:550px;
-    height:550px;
-    right:-280px;
-    top:40%;
-    background:rgba(255,120,20,.08);
-}
-
-.glow.three{
-    width:850px;
-    height:300px;
-    left:50%;
-    transform:translateX(-50%);
-    bottom:-230px;
-    background:rgba(255,82,0,.27);
-    filter:blur(120px);
-}
 
 /* =========================================================
    GRAIN
@@ -132,14 +158,19 @@ button{
 
 .grain{
     position:fixed;
+
     inset:0;
-    z-index:-5;
-    opacity:.035;
+
+    z-index:-10;
+
     pointer-events:none;
 
+    opacity:.035;
+
     background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
+
 
 /* =========================================================
    CONTAINER
@@ -147,323 +178,416 @@ button{
 
 .container{
     width:min(1180px,calc(100% - 40px));
+
     margin:auto;
 }
+
 
 /* =========================================================
    NAVBAR
 ========================================================= */
 
 .nav{
-    height:86px;
+    height:82px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
-    border-bottom:1px solid rgba(255,255,255,.055);
+    border-bottom:
+        1px solid rgba(255,255,255,.055);
 }
 
-.logo{
+
+.brand{
     display:flex;
-    align-items:center;
-    gap:11px;
 
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:.2px;
+    align-items:center;
+
+    gap:11px;
 }
 
-.logo-image{
-    width:37px;
-    height:37px;
 
-    border-radius:11px;
+.brand-photo{
+    width:38px;
+    height:38px;
+
+    border-radius:12px;
 
     object-fit:cover;
 
-    border:1px solid rgba(255,255,255,.12);
+    border:
+        1px solid rgba(255,255,255,.12);
 
     box-shadow:
-        0 0 25px rgba(255,106,0,.15);
+        0 0 30px rgba(255,90,0,.12);
 }
 
-.logo-fallback{
-    width:37px;
-    height:37px;
 
-    display:grid;
-    place-items:center;
+.brand-name{
+    font-size:12px;
 
-    border-radius:11px;
+    font-weight:700;
 
-    background:linear-gradient(
-        135deg,
-        #ff6a00,
-        #ff9b4a
-    );
-
-    color:#080706;
-    font-size:15px;
-    font-weight:800;
+    letter-spacing:.3px;
 }
+
 
 .nav-right{
     display:flex;
+
     align-items:center;
-    gap:22px;
+
+    gap:25px;
 }
 
-.nav-status{
+
+.nav-link{
+    color:#817971;
+
+    font-size:9px;
+
+    transition:.25s;
+}
+
+
+.nav-link:hover{
+    color:white;
+}
+
+
+.availability{
     display:flex;
+
     align-items:center;
+
     gap:7px;
 
-    color:#837b74;
-    font-size:10px;
+    color:#79716a;
+
+    font-size:8px;
 }
 
-.status-dot{
+
+.availability-dot{
     width:6px;
     height:6px;
 
     border-radius:50%;
 
-    background:#ff8538;
+    background:var(--orange);
 
-    box-shadow:0 0 12px rgba(255,106,0,.8);
+    box-shadow:
+        0 0 12px var(--orange);
 }
 
-.nav-link{
-    font-size:10px;
-    color:#a29a93;
-
-    transition:.25s;
-}
-
-.nav-link:hover{
-    color:#fff;
-}
 
 /* =========================================================
    HERO
 ========================================================= */
 
 .hero{
-    min-height:760px;
+    min-height:730px;
 
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
     align-items:center;
 
-    gap:60px;
+    gap:50px;
 
-    padding:90px 0 100px;
+    padding:
+        80px
+        0
+        100px;
 }
 
-.hero-left{
+
+.hero-content{
     position:relative;
-    z-index:4;
+
+    z-index:5;
 }
 
-.eyebrow{
+
+.badge{
     display:inline-flex;
+
     align-items:center;
+
     gap:8px;
 
-    padding:8px 12px;
+    padding:
+        8px
+        12px;
 
-    border:1px solid rgba(255,255,255,.08);
+    border:
+        1px solid var(--border);
 
     border-radius:999px;
 
-    background:rgba(255,255,255,.025);
+    background:
+        rgba(255,255,255,.025);
 
-    color:#999089;
+    color:#928a83;
 
-    font-size:9px;
-    letter-spacing:.3px;
+    font-size:8px;
 
     backdrop-filter:blur(15px);
 }
 
-.eyebrow i{
+
+.badge-dot{
     width:5px;
     height:5px;
-
-    display:block;
 
     border-radius:50%;
 
     background:var(--orange);
 
-    box-shadow:0 0 10px var(--orange);
+    box-shadow:
+        0 0 10px var(--orange);
 }
 
-.hero h1{
+
+.hero-title{
     margin-top:25px;
 
-    max-width:680px;
+    max-width:650px;
 
-    font-size:clamp(54px,6.2vw,82px);
+    font-size:
+        clamp(
+            52px,
+            6vw,
+            82px
+        );
 
-    line-height:.98;
+    line-height:.97;
 
     letter-spacing:-5px;
 
     font-weight:800;
 }
 
-.orange-text{
+
+.orange{
     color:var(--orange);
 }
 
-.hero-description{
-    max-width:520px;
+
+.hero-text{
+    max-width:500px;
 
     margin-top:25px;
 
     color:var(--muted);
 
-    font-size:13px;
+    font-size:12px;
 
     line-height:1.9;
 }
 
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
 .hero-buttons{
     display:flex;
+
     gap:10px;
 
     margin-top:30px;
 }
 
-.btn{
+
+.main-button{
     min-height:46px;
 
-    padding:0 18px;
+    display:flex;
 
-    display:inline-flex;
     align-items:center;
-    justify-content:center;
-    gap:8px;
+
+    gap:10px;
+
+    padding:
+        0
+        17px;
 
     border-radius:11px;
 
-    border:1px solid rgba(255,255,255,.09);
+    border:
+        1px solid rgba(255,255,255,.09);
 
-    background:rgba(255,255,255,.035);
-
-    color:#eee;
-
-    font-size:10px;
-    font-weight:600;
-
-    transition:.3s;
+    background:
+        rgba(255,255,255,.035);
 
     backdrop-filter:blur(15px);
+
+    transition:.3s;
 }
 
-.btn:hover{
+
+.main-button:hover{
     transform:translateY(-3px);
 
-    border-color:rgba(255,120,40,.35);
-
-    box-shadow:0 15px 40px rgba(255,80,0,.12);
-}
-
-.btn.primary{
-    background:linear-gradient(
-        135deg,
-        #ff6500,
-        #ff8d35
-    );
-
-    color:#140a04;
-
-    border-color:rgba(255,177,112,.3);
+    border-color:
+        rgba(255,110,30,.35);
 
     box-shadow:
-        0 13px 35px rgba(255,80,0,.16);
+        0 18px 45px rgba(255,70,0,.12);
 }
 
+
+.main-button.primary{
+    color:#140a04;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff6400,
+            #ff963f
+        );
+}
+
+
+.server-button-icon{
+    width:26px;
+    height:26px;
+
+    border-radius:8px;
+
+    object-fit:cover;
+
+    background:
+        rgba(255,255,255,.15);
+}
+
+
+.button-text{
+    display:flex;
+
+    flex-direction:column;
+
+    text-align:left;
+}
+
+
+.button-label{
+    font-size:9px;
+
+    font-weight:700;
+}
+
+
+.button-sub{
+    margin-top:2px;
+
+    font-size:6px;
+
+    opacity:.55;
+}
+
+
 /* =========================================================
-   HERO IMAGE AREA
+   HERO PHOTO
 ========================================================= */
 
-.hero-right{
+.hero-visual{
     position:relative;
 
-    height:560px;
+    height:570px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 }
 
-.hero-orb{
+
+.photo-glow{
     position:absolute;
 
-    width:380px;
-    height:380px;
+    width:420px;
+    height:420px;
 
     border-radius:50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,112,35,.19),
-            rgba(255,70,0,.035) 48%,
-            transparent 70%
+            rgba(255,103,0,.18),
+            transparent 68%
         );
 
-    filter:blur(8px);
+    filter:blur(12px);
 }
 
-.hero-ring{
+
+.photo-ring{
     position:absolute;
 
-    width:420px;
-    height:420px;
-
-    border:1px solid rgba(255,120,50,.08);
+    width:430px;
+    height:430px;
 
     border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,111,45,.09);
 }
 
-.hero-ring::before{
+
+.photo-ring::after{
     content:"";
 
     position:absolute;
-    inset:25px;
 
-    border:1px solid rgba(255,255,255,.035);
+    inset:35px;
 
     border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.035);
 }
 
-/* floating image */
 
-.profile{
-    position:absolute;
+.profile-photo{
+    position:relative;
 
-    z-index:5;
+    z-index:3;
 
-    width:min(430px,90%);
+    width:min(440px,92%);
 
-    max-height:560px;
+    max-height:600px;
 
     object-fit:contain;
 
     object-position:center bottom;
 
     filter:
-        drop-shadow(0 35px 45px rgba(0,0,0,.75))
-        drop-shadow(0 0 40px rgba(255,75,0,.11));
+        drop-shadow(
+            0 40px 50px rgba(0,0,0,.8)
+        )
 
-    animation:float 5s ease-in-out infinite;
+        drop-shadow(
+            0 0 45px rgba(255,75,0,.12)
+        );
+
+    animation:
+        floating 5s ease-in-out infinite;
 }
 
-@keyframes float{
+
+@keyframes floating{
+
     0%,100%{
         transform:translateY(0);
     }
@@ -471,52 +595,42 @@ button{
     50%{
         transform:translateY(-12px);
     }
+
 }
 
-.image-glow{
+
+.photo-caption{
     position:absolute;
 
-    width:280px;
-    height:100px;
+    z-index:5;
 
-    bottom:35px;
+    right:0;
 
-    border-radius:50%;
+    bottom:45px;
 
-    background:rgba(255,72,0,.23);
+    padding:
+        11px
+        14px;
 
-    filter:blur(55px);
-}
-
-/* =========================================================
-   SMALL IMAGE LABEL
-========================================================= */
-
-.image-label{
-    position:absolute;
-
-    z-index:7;
-
-    bottom:50px;
-    right:15px;
-
-    padding:11px 13px;
+    border:
+        1px solid var(--border);
 
     border-radius:12px;
 
-    border:1px solid rgba(255,255,255,.08);
-
-    background:rgba(10,8,7,.68);
+    background:
+        rgba(8,7,6,.72);
 
     backdrop-filter:blur(18px);
 
-    box-shadow:0 20px 50px rgba(0,0,0,.4);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.4);
 }
 
-.image-label span{
+
+.photo-caption small{
     display:block;
 
-    color:#777069;
+    color:#625b55;
 
     font-size:7px;
 
@@ -525,7 +639,8 @@ button{
     letter-spacing:1.5px;
 }
 
-.image-label strong{
+
+.photo-caption strong{
     display:block;
 
     margin-top:4px;
@@ -535,98 +650,112 @@ button{
     font-size:10px;
 }
 
+
 /* =========================================================
    SECTION
 ========================================================= */
 
 .section{
-    padding:100px 0;
+    padding:95px 0;
 }
 
-.section-heading{
+
+.section-head{
     display:flex;
-    align-items:end;
+
     justify-content:space-between;
 
-    margin-bottom:35px;
+    align-items:end;
+
+    margin-bottom:32px;
 }
 
-.section-kicker{
+
+.kicker{
     color:var(--orange);
 
-    font-size:9px;
-
-    text-transform:uppercase;
+    font-size:8px;
 
     letter-spacing:2px;
+
+    text-transform:uppercase;
 }
+
 
 .section-title{
     margin-top:8px;
 
     font-size:34px;
 
-    letter-spacing:-1.8px;
+    letter-spacing:-2px;
 }
 
-.section-sub{
-    max-width:360px;
 
-    color:#777069;
+.section-description{
+    max-width:380px;
 
-    font-size:10px;
+    color:#6f6862;
 
-    line-height:1.7;
+    font-size:9px;
+
+    line-height:1.8;
 
     text-align:right;
 }
 
+
 /* =========================================================
-   SERVER SHOWCASE
+   SHOWCASE
 ========================================================= */
 
-.server-layout{
+.showcase{
     display:grid;
 
-    grid-template-columns:1.3fr .7fr;
+    grid-template-columns:
+        1.3fr
+        .7fr;
 
-    gap:18px;
+    gap:17px;
 }
+
+
+/* =========================================================
+   SERVER CARD
+========================================================= */
 
 .server-card{
     overflow:hidden;
 
+    border:
+        1px solid var(--border);
+
     border-radius:22px;
 
-    border:1px solid rgba(255,255,255,.09);
-
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.055),
-            rgba(255,255,255,.018)
-        );
-
-    box-shadow:
-        0 35px 90px rgba(0,0,0,.45);
+        rgba(255,255,255,.028);
 
     backdrop-filter:blur(22px);
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.45);
 }
 
+
 .server-banner{
-    height:245px;
+    height:250px;
 
     position:relative;
+
+    overflow:hidden;
 
     background:
         linear-gradient(
             135deg,
-            #21140b,
-            #100b07
+            #24150c,
+            #0d0906
         );
-
-    overflow:hidden;
 }
+
 
 .server-banner img{
     width:100%;
@@ -634,96 +763,115 @@ button{
 
     object-fit:cover;
 
-    opacity:.76;
+    opacity:.8;
 }
+
 
 .server-banner::after{
     content:"";
 
     position:absolute;
+
     inset:0;
 
     background:
         linear-gradient(
             to bottom,
-            transparent 20%,
-            rgba(5,4,3,.9) 100%
+            transparent 15%,
+            rgba(5,4,3,.95)
         );
 }
 
-.server-info{
+
+.server-content{
     position:relative;
 
-    padding:0 25px 25px;
+    padding:
+        0
+        25px
+        25px;
 }
 
-.server-logo{
+
+.server-icon{
     position:relative;
 
-    width:84px;
-    height:84px;
+    z-index:4;
 
-    margin-top:-42px;
+    width:82px;
+    height:82px;
 
-    z-index:5;
+    margin-top:-41px;
 
     padding:4px;
 
-    border-radius:22px;
+    border-radius:21px;
 
     background:#0b0907;
 
-    border:1px solid rgba(255,255,255,.12);
+    border:
+        1px solid rgba(255,255,255,.13);
 
-    box-shadow:0 20px 35px rgba(0,0,0,.5);
+    box-shadow:
+        0 20px 35px rgba(0,0,0,.5);
 }
 
-.server-logo img{
+
+.server-icon img{
     width:100%;
     height:100%;
 
     object-fit:cover;
 
-    border-radius:18px;
+    border-radius:17px;
 }
 
-.server-top{
-    display:flex;
 
-    justify-content:space-between;
+.server-heading{
+    display:flex;
 
     align-items:center;
 
+    justify-content:space-between;
+
     gap:20px;
 
-    margin-top:17px;
+    margin-top:16px;
 }
 
-.server-name{
-    font-size:22px;
 
-    font-weight:700;
+.server-name{
+    font-size:21px;
 
     letter-spacing:-.7px;
 }
 
+
 .live{
     display:flex;
+
     align-items:center;
+
     gap:6px;
 
-    padding:6px 9px;
+    padding:
+        6px
+        9px;
 
     border-radius:999px;
 
-    border:1px solid rgba(255,106,0,.15);
-
-    background:rgba(255,106,0,.05);
-
     color:#ff9955;
 
-    font-size:8px;
+    background:
+        rgba(255,100,0,.05);
+
+    border:
+        1px solid
+        rgba(255,100,0,.13);
+
+    font-size:7px;
 }
+
 
 .live-dot{
     width:5px;
@@ -731,24 +879,25 @@ button{
 
     border-radius:50%;
 
-    background:#ff7722;
+    background:var(--orange);
 
-    box-shadow:0 0 9px #ff6a00;
+    box-shadow:
+        0 0 9px var(--orange);
 }
 
+
 .server-description{
-    max-width:650px;
+    margin-top:10px;
 
-    margin-top:11px;
+    color:#777069;
 
-    color:#827a73;
-
-    font-size:10px;
+    font-size:9px;
 
     line-height:1.8;
 }
 
-.stats{
+
+.server-stats{
     display:grid;
 
     grid-template-columns:1fr 1fr;
@@ -758,131 +907,154 @@ button{
     margin-top:20px;
 }
 
+
 .stat{
-    padding:16px;
+    padding:15px;
 
-    border-radius:13px;
+    border:
+        1px solid rgba(255,255,255,.055);
 
-    border:1px solid rgba(255,255,255,.055);
+    border-radius:12px;
 
-    background:rgba(255,255,255,.025);
+    background:
+        rgba(255,255,255,.025);
 }
 
-.stat-label{
-    color:#69615b;
 
-    font-size:8px;
+.stat-title{
+    color:#5d5650;
+
+    font-size:7px;
 
     text-transform:uppercase;
 
-    letter-spacing:1.2px;
+    letter-spacing:1px;
 }
 
-.stat-value{
+
+.stat-number{
     margin-top:6px;
 
-    font-size:19px;
+    font-size:18px;
 
     font-weight:700;
 }
 
-.join{
+
+.join-server{
     width:100%;
 
-    min-height:45px;
+    min-height:44px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
     margin-top:10px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
     border-radius:11px;
 
-    background:linear-gradient(
-        135deg,
-        #ff6500,
-        #ff923e
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #ff6500,
+            #ff933d
+        );
 
     color:#160a03;
 
-    font-size:10px;
+    font-size:9px;
+
     font-weight:700;
 
     transition:.3s;
 }
 
-.join:hover{
+
+.join-server:hover{
     transform:translateY(-2px);
 
     box-shadow:
-        0 15px 35px rgba(255,80,0,.18);
+        0 15px 35px
+        rgba(255,80,0,.18);
 }
 
-.sync{
+
+.sync-status{
     margin-top:9px;
 
     text-align:center;
 
-    color:#4f4944;
+    color:#48423e;
 
     font-size:7px;
 }
 
+
 /* =========================================================
-   SIDE INFO
+   SIDE CARDS
 ========================================================= */
 
-.info-stack{
+.side-cards{
     display:grid;
 
-    gap:18px;
+    gap:17px;
 }
 
-.info-card{
+
+.side-card{
     min-height:150px;
 
     padding:23px;
 
-    border-radius:19px;
+    border:
+        1px solid var(--border);
 
-    border:1px solid rgba(255,255,255,.075);
+    border-radius:18px;
 
-    background:rgba(255,255,255,.025);
+    background:
+        rgba(255,255,255,.025);
 
-    backdrop-filter:blur(20px);
+    backdrop-filter:blur(18px);
 
     transition:.3s;
 }
 
-.info-card:hover{
+
+.side-card:hover{
     transform:translateY(-4px);
 
-    border-color:rgba(255,120,40,.18);
+    border-color:
+        rgba(255,100,0,.2);
 }
 
-.info-number{
+
+.side-number{
     color:var(--orange);
 
-    font-size:10px;
+    font-size:8px;
 }
 
-.info-card h3{
-    margin-top:12px;
 
-    font-size:16px;
+.side-card h3{
+    margin-top:13px;
+
+    font-size:15px;
 }
 
-.info-card p{
-    margin-top:9px;
 
-    color:#777069;
+.side-card p{
+    margin-top:8px;
 
-    font-size:9px;
+    color:#6f6862;
+
+    font-size:8px;
 
     line-height:1.8;
 }
+
 
 /* =========================================================
    ABOUT
@@ -891,61 +1063,74 @@ button{
 .about-grid{
     display:grid;
 
-    grid-template-columns:.7fr 1.3fr;
+    grid-template-columns:
+        .8fr
+        1.2fr;
 
-    gap:20px;
+    gap:17px;
 }
 
+
 .about-main{
-    min-height:320px;
+    min-height:330px;
 
     padding:30px;
 
-    border-radius:21px;
+    border:
+        1px solid var(--border);
 
-    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,106,0,.06),
+            rgba(255,100,0,.07),
             rgba(255,255,255,.025)
         );
 }
 
+
 .about-main h3{
-    font-size:26px;
+    font-size:27px;
 
     line-height:1.25;
 
     letter-spacing:-1px;
 }
 
+
 .about-main p{
     margin-top:18px;
 
-    color:#827a73;
+    color:#777069;
 
-    font-size:11px;
+    font-size:10px;
 
     line-height:1.9;
 }
+
 
 .about-tag{
     display:inline-block;
 
     margin-top:25px;
 
-    padding:8px 10px;
+    padding:
+        8px
+        10px;
 
     border-radius:8px;
 
-    background:rgba(255,106,0,.07);
+    color:#ff9652;
 
-    color:#ff9650;
+    background:
+        rgba(255,100,0,.07);
 
-    font-size:8px;
+    font-size:7px;
+
+    letter-spacing:1px;
 }
+
 
 .skills{
     display:grid;
@@ -955,139 +1140,178 @@ button{
     gap:10px;
 }
 
+
 .skill{
     padding:22px;
 
+    border:
+        1px solid var(--border);
+
     border-radius:17px;
 
-    border:1px solid rgba(255,255,255,.065);
-
-    background:rgba(255,255,255,.025);
+    background:
+        rgba(255,255,255,.025);
 }
+
 
 .skill-icon{
     width:31px;
     height:31px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:9px;
 
-    background:rgba(255,106,0,.08);
+    color:#ff8a3c;
 
-    color:#ff8738;
+    background:
+        rgba(255,100,0,.08);
 
-    font-size:12px;
+    font-size:8px;
 }
+
 
 .skill h4{
     margin-top:14px;
 
-    font-size:12px;
+    font-size:11px;
 }
+
 
 .skill p{
     margin-top:7px;
 
-    color:#6f6862;
+    color:#69615b;
 
     font-size:8px;
 
     line-height:1.7;
 }
 
+
 /* =========================================================
    SERVICES
 ========================================================= */
 
-.service-grid{
+.services{
     display:grid;
 
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:
+        repeat(4,1fr);
 
-    gap:12px;
+    gap:11px;
 }
+
 
 .service{
     min-height:170px;
 
     padding:21px;
 
+    border:
+        1px solid var(--border);
+
     border-radius:17px;
 
-    border:1px solid rgba(255,255,255,.065);
-
-    background:rgba(255,255,255,.025);
+    background:
+        rgba(255,255,255,.025);
 
     transition:.3s;
 }
 
+
 .service:hover{
     transform:translateY(-5px);
 
-    background:rgba(255,106,0,.045);
+    border-color:
+        rgba(255,100,0,.2);
 
-    border-color:rgba(255,106,0,.18);
+    background:
+        rgba(255,100,0,.035);
 }
 
-.service-num{
-    color:#514a45;
 
-    font-size:8px;
+.service-number{
+    color:#504a45;
+
+    font-size:7px;
 }
+
 
 .service h3{
     margin-top:40px;
 
-    font-size:13px;
+    font-size:12px;
 }
+
 
 .service p{
     margin-top:7px;
 
-    color:#706962;
+    color:#69615b;
 
     font-size:8px;
 
     line-height:1.7;
 }
 
+
 /* =========================================================
-   COMMUNITY
+   COMMUNITIES
 ========================================================= */
 
-.community-grid{
+.communities{
     display:grid;
 
     grid-template-columns:1fr 1fr;
 
-    gap:14px;
-}
-
-.community{
-    padding:23px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:20px;
-
-    border-radius:18px;
-
-    border:1px solid rgba(255,255,255,.065);
-
-    background:rgba(255,255,255,.025);
-}
-
-.community-left{
-    display:flex;
-    align-items:center;
     gap:13px;
 }
 
-.community-icon{
+
+.community{
+    min-height:88px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:17px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:.3s;
+}
+
+
+.community:hover{
+    border-color:
+        rgba(255,100,0,.18);
+
+    transform:translateY(-3px);
+}
+
+
+.community-left{
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+}
+
+
+.community-logo{
     width:48px;
     height:48px;
 
@@ -1095,36 +1319,47 @@ button{
 
     object-fit:cover;
 
-    border:1px solid rgba(255,255,255,.08);
+    background:#14110e;
+
+    border:
+        1px solid rgba(255,255,255,.08);
 }
 
-.community h3{
-    font-size:12px;
+
+.community-name{
+    font-size:11px;
+
+    font-weight:700;
 }
 
-.community p{
+
+.community-type{
     margin-top:5px;
 
-    color:#6f6862;
+    color:#68615b;
 
-    font-size:8px;
+    font-size:7px;
 }
 
-.community-link{
-    width:35px;
-    height:35px;
+
+.community-arrow{
+    width:34px;
+    height:34px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:10px;
 
-    background:rgba(255,106,0,.07);
+    color:#ff8b3d;
 
-    color:#ff8a3b;
+    background:
+        rgba(255,100,0,.07);
 
     font-size:11px;
 }
+
 
 /* =========================================================
    CONTACT
@@ -1133,68 +1368,78 @@ button{
 .contact{
     position:relative;
 
-    padding:55px;
-
     overflow:hidden;
 
-    border-radius:25px;
+    padding:55px 25px;
 
-    border:1px solid rgba(255,255,255,.08);
+    text-align:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:24px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,106,0,.09),
+            rgba(255,100,0,.08),
             rgba(255,255,255,.025)
         );
-
-    text-align:center;
 }
 
-.contact::before{
+
+.contact::after{
     content:"";
 
     position:absolute;
 
-    width:400px;
-    height:200px;
+    width:500px;
+    height:180px;
 
     left:50%;
-    bottom:-160px;
+    bottom:-150px;
 
     transform:translateX(-50%);
 
-    background:rgba(255,82,0,.3);
+    background:
+        rgba(255,80,0,.25);
 
     filter:blur(80px);
 }
 
+
 .contact h2{
     position:relative;
+
+    z-index:2;
 
     font-size:35px;
 
     letter-spacing:-2px;
 }
 
+
 .contact p{
     position:relative;
 
+    z-index:2;
+
     max-width:500px;
 
-    margin:15px auto 0;
+    margin:14px auto 0;
 
-    color:#827a73;
+    color:#777069;
 
-    font-size:10px;
+    font-size:9px;
 
     line-height:1.8;
 }
 
+
 .contact-buttons{
     position:relative;
 
-    margin-top:25px;
+    z-index:2;
 
     display:flex;
 
@@ -1202,35 +1447,40 @@ button{
 
     gap:9px;
 
-    flex-wrap:wrap;
+    margin-top:25px;
 }
+
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 .footer{
-    padding:30px 0 35px;
+    padding:
+        30px
+        0
+        35px;
 
     display:flex;
 
-    align-items:center;
-
     justify-content:space-between;
 
-    border-top:1px solid rgba(255,255,255,.055);
+    border-top:
+        1px solid rgba(255,255,255,.055);
 
-    color:#514b46;
+    color:#4e4843;
 
-    font-size:8px;
+    font-size:7px;
 }
+
 
 .footer strong{
-    color:#8b827a;
+    color:#888078;
 }
 
+
 /* =========================================================
-   REVEAL ANIMATION
+   REVEAL
 ========================================================= */
 
 .reveal{
@@ -1243,14 +1493,16 @@ button{
         transform .7s ease;
 }
 
-.reveal.show{
+
+.reveal.visible{
     opacity:1;
 
     transform:translateY(0);
 }
 
+
 /* =========================================================
-   RESPONSIVE
+   MOBILE
 ========================================================= */
 
 @media(max-width:950px){
@@ -1260,65 +1512,75 @@ button{
 
         text-align:center;
 
-        padding-top:70px;
+        padding-top:65px;
     }
 
-    .hero-left{
+
+    .hero-content{
         display:flex;
+
         flex-direction:column;
+
         align-items:center;
     }
 
-    .hero-right{
+
+    .hero-visual{
         height:500px;
     }
 
-    .server-layout{
+
+    .showcase{
         grid-template-columns:1fr;
     }
 
-    .service-grid{
-        grid-template-columns:1fr 1fr;
-    }
 
     .about-grid{
         grid-template-columns:1fr;
     }
 
-    .section-sub{
-        text-align:left;
+
+    .services{
+        grid-template-columns:1fr 1fr;
     }
+
 }
+
 
 @media(max-width:650px){
 
     .container{
-        width:calc(100% - 28px);
+        width:
+            calc(100% - 28px);
     }
+
 
     .nav{
         height:72px;
     }
 
+
     .nav-right{
         display:none;
     }
 
-    .hero{
-        padding:65px 0 70px;
 
-        gap:20px;
+    .hero{
+        min-height:auto;
+
+        padding:
+            65px
+            0
+            80px;
     }
 
-    .hero h1{
-        font-size:50px;
+
+    .hero-title{
+        font-size:48px;
 
         letter-spacing:-3.5px;
     }
 
-    .hero-description{
-        font-size:11px;
-    }
 
     .hero-buttons{
         width:100%;
@@ -1326,119 +1588,129 @@ button{
         flex-direction:column;
     }
 
-    .hero-buttons .btn{
+
+    .main-button{
         width:100%;
+
+        justify-content:center;
     }
 
-    .hero-right{
-        height:440px;
+
+    .hero-visual{
+        height:450px;
     }
 
-    .profile{
-        width:350px;
+
+    .profile-photo{
+        width:340px;
     }
 
-    .hero-ring{
+
+    .photo-ring{
         width:320px;
         height:320px;
     }
 
-    .hero-orb{
+
+    .photo-glow{
         width:300px;
         height:300px;
     }
 
-    .image-label{
+
+    .photo-caption{
         right:0;
-        bottom:20px;
+
+        bottom:15px;
     }
+
 
     .section{
         padding:70px 0;
     }
 
-    .section-heading{
+
+    .section-head{
         display:block;
     }
 
-    .section-sub{
+
+    .section-description{
         margin-top:12px;
+
+        text-align:left;
     }
+
 
     .server-banner{
         height:190px;
     }
 
-    .server-top{
-        align-items:flex-start;
+
+    .server-heading{
         flex-direction:column;
-        gap:9px;
+
+        align-items:flex-start;
     }
 
-    .about-grid{
+
+    .communities{
         grid-template-columns:1fr;
     }
 
-    .skills{
+
+    .services{
         grid-template-columns:1fr 1fr;
     }
 
-    .service-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .community-grid{
-        grid-template-columns:1fr;
-    }
 
     .contact{
         padding:40px 20px;
     }
 
+
     .contact h2{
-        font-size:29px;
+        font-size:28px;
     }
+
 
     .footer{
         flex-direction:column;
 
-        gap:8px;
+        align-items:center;
 
-        text-align:center;
+        gap:8px;
     }
+
 }
+
 
 @media(max-width:400px){
 
-    .hero h1{
-        font-size:43px;
+    .hero-title{
+        font-size:42px;
     }
 
-    .profile{
+
+    .profile-photo{
         width:300px;
     }
 
-    .service-grid{
+
+    .services{
         grid-template-columns:1fr;
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================================================
-     BACKGROUND
-========================================================= -->
 
-<div class="page-bg">
-
-    <div class="glow one"></div>
-    <div class="glow two"></div>
-    <div class="glow three"></div>
-
-</div>
-
+<div class="background"></div>
 <div class="grain"></div>
 
 
@@ -1450,15 +1722,17 @@ button{
 
 <nav class="nav">
 
-    <a href="#" class="logo">
+    <a href="#" class="brand">
 
         <img
-            id="navLogo"
-            class="logo-image"
+            id="navProfile"
+            class="brand-photo"
             alt="Profile"
         >
 
-        <span>HRIDOY HASAN</span>
+        <span class="brand-name">
+            HRIDOY HASAN
+        </span>
 
     </a>
 
@@ -1474,12 +1748,12 @@ button{
         </a>
 
         <a href="#community" class="nav-link">
-            Community
+            Communities
         </a>
 
-        <div class="nav-status">
+        <div class="availability">
 
-            <span class="status-dot"></span>
+            <span class="availability-dot"></span>
 
             Available
 
@@ -1492,30 +1766,32 @@ button{
 </header>
 
 
+<main>
+
+
 <!-- =========================================================
      HERO
 ========================================================= -->
 
-<main>
-
 <section class="container hero">
 
-    <div class="hero-left reveal">
 
-        <div class="eyebrow">
+    <div class="hero-content reveal">
 
-            <i></i>
+        <div class="badge">
+
+            <span class="badge-dot"></span>
 
             DISCORD FOUNDER · DIGITAL CREATOR
 
         </div>
 
 
-        <h1>
+        <h1 class="hero-title">
 
             Building
 
-            <span class="orange-text">
+            <span class="orange">
                 digital
             </span>
 
@@ -1524,35 +1800,81 @@ button{
         </h1>
 
 
-        <p class="hero-description">
+        <p class="hero-text">
 
-            I build communities, manage digital projects and
-            create premium online experiences around Discord
-            and digital services.
+            I build Discord communities, digital projects and
+            premium online experiences with a focus on identity,
+            organization and community.
 
         </p>
 
 
+        <!-- BUTTONS -->
+
         <div class="hero-buttons">
+
 
             <a
                 id="shopButton"
+                class="main-button primary"
                 href="#"
                 target="_blank"
-                class="btn primary"
             >
-                SHOP SERVER
+
+                <img
+                    id="shopButtonLogo"
+                    class="server-button-icon"
+                    alt=""
+                >
+
+                <span class="button-text">
+
+                    <span class="button-label">
+                        SHOP SERVER
+                    </span>
+
+                    <span
+                        id="shopButtonName"
+                        class="button-sub"
+                    >
+                        Discord Server
+                    </span>
+
+                </span>
+
             </a>
 
 
             <a
                 id="nobogotoButton"
+                class="main-button"
                 href="#"
                 target="_blank"
-                class="btn"
             >
-                NOBOGOTO
+
+                <img
+                    id="nobogotoButtonLogo"
+                    class="server-button-icon"
+                    alt=""
+                >
+
+                <span class="button-text">
+
+                    <span class="button-label">
+                        NOBOGOTO
+                    </span>
+
+                    <span
+                        id="nobogotoButtonName"
+                        class="button-sub"
+                    >
+                        Discord Community
+                    </span>
+
+                </span>
+
             </a>
+
 
         </div>
 
@@ -1561,27 +1883,29 @@ button{
 
     <!-- PHOTO -->
 
-    <div class="hero-right reveal">
+    <div class="hero-visual reveal">
 
-        <div class="hero-orb"></div>
+        <div class="photo-glow"></div>
 
-        <div class="hero-ring"></div>
-
-        <div class="image-glow"></div>
+        <div class="photo-ring"></div>
 
 
         <img
-            id="profileHero"
-            class="profile"
+            id="profilePhoto"
+            class="profile-photo"
             alt="Hridoy Hasan"
         >
 
 
-        <div class="image-label">
+        <div class="photo-caption">
 
-            <span>Creator</span>
+            <small>
+                Digital Creator
+            </small>
 
-            <strong>Hridoy Hasan</strong>
+            <strong>
+                Hridoy Hasan
+            </strong>
 
         </div>
 
@@ -1594,13 +1918,16 @@ button{
      SERVER SHOWCASE
 ========================================================= -->
 
-<section class="container section" id="showcase">
+<section
+    class="container section"
+    id="showcase"
+>
 
-    <div class="section-heading reveal">
+    <div class="section-head reveal">
 
         <div>
 
-            <div class="section-kicker">
+            <div class="kicker">
                 Featured Community
             </div>
 
@@ -1611,17 +1938,17 @@ button{
         </div>
 
 
-        <p class="section-sub">
+        <p class="section-description">
 
-            A live preview of one of my Discord communities,
-            automatically synchronized with the server invite.
+            Live Discord server information powered directly
+            from the invite link.
 
         </p>
 
     </div>
 
 
-    <div class="server-layout">
+    <div class="showcase">
 
 
         <!-- SERVER -->
@@ -1632,30 +1959,30 @@ button{
             <div class="server-banner">
 
                 <img
-                    id="serverBanner"
-                    alt="Discord Server Banner"
+                    id="showcaseBanner"
+                    alt="Discord Banner"
                 >
 
             </div>
 
 
-            <div class="server-info">
+            <div class="server-content">
 
 
-                <div class="server-logo">
+                <div class="server-icon">
 
                     <img
-                        id="serverIcon"
-                        alt="Server Icon"
+                        id="showcaseIcon"
+                        alt="Server Logo"
                     >
 
                 </div>
 
 
-                <div class="server-top">
+                <div class="server-heading">
 
                     <h3
-                        id="serverName"
+                        id="showcaseName"
                         class="server-name"
                     >
                         Loading...
@@ -1674,7 +2001,7 @@ button{
 
 
                 <p
-                    id="serverDescription"
+                    id="showcaseDescription"
                     class="server-description"
                 >
                     Loading server information...
@@ -1682,17 +2009,18 @@ button{
                 </p>
 
 
-                <div class="stats">
+                <div class="server-stats">
+
 
                     <div class="stat">
 
-                        <div class="stat-label">
+                        <div class="stat-title">
                             Online
                         </div>
 
                         <div
-                            id="onlineCount"
-                            class="stat-value"
+                            id="showcaseOnline"
+                            class="stat-number"
                         >
                             —
                         </div>
@@ -1702,52 +2030,54 @@ button{
 
                     <div class="stat">
 
-                        <div class="stat-label">
+                        <div class="stat-title">
                             Members
                         </div>
 
                         <div
-                            id="memberCount"
-                            class="stat-value"
+                            id="showcaseMembers"
+                            class="stat-number"
                         >
                             —
                         </div>
 
                     </div>
+
 
                 </div>
 
 
                 <a
-                    id="joinServer"
+                    id="showcaseJoin"
+                    class="join-server"
                     href="#"
                     target="_blank"
-                    class="join"
                 >
                     JOIN SERVER
                 </a>
 
 
                 <div
-                    id="syncStatus"
-                    class="sync"
+                    id="showcaseSync"
+                    class="sync-status"
                 >
-                    Syncing...
+                    Connecting...
                 </div>
+
 
             </div>
 
         </div>
 
 
-        <!-- SIDE INFO -->
+        <!-- SIDE -->
 
-        <div class="info-stack">
+        <div class="side-cards">
 
 
-            <div class="info-card reveal">
+            <div class="side-card reveal">
 
-                <div class="info-number">
+                <div class="side-number">
                     01
                 </div>
 
@@ -1756,16 +2086,16 @@ button{
                 </h3>
 
                 <p>
-                    Building organized and welcoming Discord
-                    communities with a strong identity.
+                    Building organized, welcoming and unique
+                    Discord communities.
                 </p>
 
             </div>
 
 
-            <div class="info-card reveal">
+            <div class="side-card reveal">
 
-                <div class="info-number">
+                <div class="side-number">
                     02
                 </div>
 
@@ -1774,16 +2104,16 @@ button{
                 </h3>
 
                 <p>
-                    Premium digital services designed around
-                    modern online communities.
+                    Premium digital services and online
+                    experiences.
                 </p>
 
             </div>
 
 
-            <div class="info-card reveal">
+            <div class="side-card reveal">
 
-                <div class="info-number">
+                <div class="side-number">
                     03
                 </div>
 
@@ -1792,11 +2122,12 @@ button{
                 </h3>
 
                 <p>
-                    Constantly experimenting with better ideas,
-                    experiences and community systems.
+                    Constantly improving systems, design and
+                    community experiences.
                 </p>
 
             </div>
+
 
         </div>
 
@@ -1814,11 +2145,11 @@ button{
     id="about"
 >
 
-    <div class="section-heading reveal">
+    <div class="section-head reveal">
 
         <div>
 
-            <div class="section-kicker">
+            <div class="kicker">
                 About Me
             </div>
 
@@ -1845,9 +2176,9 @@ button{
             <p>
 
                 I'm focused on Discord communities, digital
-                services and creative online projects. My goal
-                is simple — make digital spaces feel organized,
-                unique and genuinely enjoyable.
+                services and creative online projects. The goal
+                is to make every digital space feel organized,
+                recognizable and enjoyable.
 
             </p>
 
@@ -1873,8 +2204,7 @@ button{
                 </h4>
 
                 <p>
-                    Designing and growing organized online
-                    communities.
+                    Designing and growing online communities.
                 </p>
 
             </div>
@@ -1891,8 +2221,7 @@ button{
                 </h4>
 
                 <p>
-                    Server structure, roles, systems and
-                    community experience.
+                    Server structure, roles and systems.
                 </p>
 
             </div>
@@ -1909,8 +2238,7 @@ button{
                 </h4>
 
                 <p>
-                    Building useful digital products and
-                    experiences.
+                    Building useful digital experiences.
                 </p>
 
             </div>
@@ -1927,8 +2255,7 @@ button{
                 </h4>
 
                 <p>
-                    Creating unique visual identities for
-                    digital communities.
+                    Visual identity for digital communities.
                 </p>
 
             </div>
@@ -1950,11 +2277,11 @@ button{
     id="services"
 >
 
-    <div class="section-heading reveal">
+    <div class="section-head reveal">
 
         <div>
 
-            <div class="section-kicker">
+            <div class="kicker">
                 What I Do
             </div>
 
@@ -1967,12 +2294,12 @@ button{
     </div>
 
 
-    <div class="service-grid">
+    <div class="services">
 
 
         <div class="service reveal">
 
-            <div class="service-num">
+            <div class="service-number">
                 01
             </div>
 
@@ -1981,7 +2308,7 @@ button{
             </h3>
 
             <p>
-                Community setup, structure, branding and
+                Community setup, branding, structure and
                 management.
             </p>
 
@@ -1990,7 +2317,7 @@ button{
 
         <div class="service reveal">
 
-            <div class="service-num">
+            <div class="service-number">
                 02
             </div>
 
@@ -1999,8 +2326,7 @@ button{
             </h3>
 
             <p>
-                Curated digital products and subscription
-                services.
+                Curated digital products and subscriptions.
             </p>
 
         </div>
@@ -2008,7 +2334,7 @@ button{
 
         <div class="service reveal">
 
-            <div class="service-num">
+            <div class="service-number">
                 03
             </div>
 
@@ -2017,8 +2343,7 @@ button{
             </h3>
 
             <p>
-                Bots, moderation systems, automation and
-                community tools.
+                Bots, moderation, automation and tools.
             </p>
 
         </div>
@@ -2026,7 +2351,7 @@ button{
 
         <div class="service reveal">
 
-            <div class="service-num">
+            <div class="service-number">
                 04
             </div>
 
@@ -2035,8 +2360,7 @@ button{
             </h3>
 
             <p>
-                Digital concepts, branding and unique online
-                experiences.
+                Digital concepts, branding and experiences.
             </p>
 
         </div>
@@ -2048,7 +2372,7 @@ button{
 
 
 <!-- =========================================================
-     COMMUNITY
+     COMMUNITIES
 ========================================================= -->
 
 <section
@@ -2056,11 +2380,11 @@ button{
     id="community"
 >
 
-    <div class="section-heading reveal">
+    <div class="section-head reveal">
 
         <div>
 
-            <div class="section-kicker">
+            <div class="kicker">
                 My Communities
             </div>
 
@@ -2073,81 +2397,91 @@ button{
     </div>
 
 
-    <div class="community-grid">
+    <div class="communities">
 
 
-        <div class="community reveal">
+        <!-- SHOP -->
+
+        <a
+            id="shopCommunity"
+            href="#"
+            target="_blank"
+            class="community reveal"
+        >
 
             <div class="community-left">
 
                 <img
-                    id="communityLogo1"
-                    class="community-icon"
-                    alt="Shop"
+                    id="shopCommunityLogo"
+                    class="community-logo"
+                    alt="Shop Server"
                 >
 
                 <div>
 
-                    <h3>
+                    <div
+                        id="shopCommunityName"
+                        class="community-name"
+                    >
                         Shop Server
-                    </h3>
+                    </div>
 
-                    <p>
-                        Digital services & community
-                    </p>
+                    <div class="community-type">
+                        Digital Services
+                    </div>
 
                 </div>
 
             </div>
 
 
-            <a
-                id="communityLink1"
-                href="#"
-                target="_blank"
-                class="community-link"
-            >
+            <div class="community-arrow">
                 ↗
-            </a>
+            </div>
 
-        </div>
+        </a>
 
 
-        <div class="community reveal">
+        <!-- NOBOGOTO -->
+
+        <a
+            id="nobogotoCommunity"
+            href="#"
+            target="_blank"
+            class="community reveal"
+        >
 
             <div class="community-left">
 
                 <img
-                    id="communityLogo2"
-                    class="community-icon"
+                    id="nobogotoCommunityLogo"
+                    class="community-logo"
                     alt="NOBOGOTO"
                 >
 
                 <div>
 
-                    <h3>
+                    <div
+                        id="nobogotoCommunityName"
+                        class="community-name"
+                    >
                         NOBOGOTO
-                    </h3>
+                    </div>
 
-                    <p>
-                        Community & Hangout
-                    </p>
+                    <div class="community-type">
+                        Bangladesh Community
+                    </div>
 
                 </div>
 
             </div>
 
 
-            <a
-                id="communityLink2"
-                href="#"
-                target="_blank"
-                class="community-link"
-            >
+            <div class="community-arrow">
                 ↗
-            </a>
+            </div>
 
-        </div>
+        </a>
 
 
     </div>
@@ -2164,16 +2498,21 @@ button{
     <div class="contact reveal">
 
         <h2>
+
             Let's build something
-            <span class="orange-text">
+
+            <span class="orange">
                 different.
             </span>
+
         </h2>
 
 
         <p>
-            Interested in working together, joining a community
-            or checking out my digital projects?
+
+            Join one of my communities or explore the digital
+            services and projects I'm working on.
+
         </p>
 
 
@@ -2181,21 +2520,21 @@ button{
 
             <a
                 id="contactShop"
+                class="main-button primary"
                 href="#"
                 target="_blank"
-                class="btn primary"
             >
-                VISIT SHOP
+                SHOP SERVER
             </a>
 
 
             <a
-                id="contactCommunity"
+                id="contactNobogoto"
+                class="main-button"
                 href="#"
                 target="_blank"
-                class="btn"
             >
-                JOIN NOBOGOTO
+                NOBOGOTO
             </a>
 
         </div>
@@ -2203,6 +2542,7 @@ button{
     </div>
 
 </section>
+
 
 </main>
 
@@ -2228,108 +2568,94 @@ button{
 
 /* =========================================================
    CONFIG
-   ========================================================= */
+   =========================================================
 
-/*
-   শুধু এই ৪টা জিনিস change করবে।
+   ONLY EDIT THESE 3 VALUES.
 
-   PROFILE_IMAGE:
-   তোমার PNG/JPG image URL.
+   ---------------------------------------------------------
 
-   Example:
-   https://i.imgur.com/example.png
+   PROFILE_IMAGE
 
-   অথবা নিজের hosting:
-   https://yourwebsite.com/photo.png
+   Put your direct image URL here.
+
+   Discord CDN PNG:
+   https://cdn.discordapp.com/attachments/.../photo.png
+
+   Discord CDN GIF:
+   https://cdn.discordapp.com/attachments/.../photo.gif
+
+   JPG / WEBP also works.
+
+   ---------------------------------------------------------
 */
 
 const PROFILE_IMAGE =
-    "https://ibb.co.com/JwSQRwgX";
+"https://cdn.discordapp.com/attachments/1535026570799087616/1538703963300298852/file_00000000d85082078b8c99bf06b66d66.png?ex=6a83a53c&is=6a8253bc&hm=605c7622957e6815feff5a21fe00d53680543e275f590b5b696d3c16874cdb8d&";
 
 
 /*
-   SHOP SERVER
+   SHOP SERVER INVITE
 */
 
 const SHOP_INVITE =
-    "https://discord.gg/YOUR-SHOP";
+"https://discord.gg/YOUR-SHOP";
 
 
 /*
-   NOBOGOTO SERVER
+   NOBOGOTO INVITE
 */
 
 const NOBOGOTO_INVITE =
-    "https://discord.gg/vYhcdSUdnG";
+"https://discord.gg/vYhcdSUdnG";
 
 
 /*
    SERVER SHOWCASE
 
-   যে server-এর information card-এ দেখাবে
+   Choose which server should appear
+   in the big showcase.
+
+   SHOP_INVITE
+   or
+   NOBOGOTO_INVITE
 */
 
 const SHOWCASE_INVITE =
-    "https://discord.gg/vYhcdSUdnG";
+"https://discord.gg/vYhcdSUdnG";
 
 
 /* =========================================================
-   IMAGE SETUP
+   PROFILE IMAGE
 ========================================================= */
 
-document.getElementById("navLogo").src =
-    PROFILE_IMAGE;
+document
+    .getElementById("navProfile")
+    .src = PROFILE_IMAGE;
 
-document.getElementById("profileHero").src =
-    PROFILE_IMAGE;
-
-document.getElementById("communityLogo1").src =
-    PROFILE_IMAGE;
-
-document.getElementById("communityLogo2").src =
-    PROFILE_IMAGE;
+document
+    .getElementById("profilePhoto")
+    .src = PROFILE_IMAGE;
 
 
 /* =========================================================
-   BUTTON LINKS
+   INVITE CODE
 ========================================================= */
 
-document.getElementById("shopButton").href =
-    SHOP_INVITE;
-
-document.getElementById("nobogotoButton").href =
-    NOBOGOTO_INVITE;
-
-document.getElementById("communityLink1").href =
-    SHOP_INVITE;
-
-document.getElementById("communityLink2").href =
-    NOBOGOTO_INVITE;
-
-document.getElementById("contactShop").href =
-    SHOP_INVITE;
-
-document.getElementById("contactCommunity").href =
-    NOBOGOTO_INVITE;
-
-
-/* =========================================================
-   DISCORD INVITE CODE
-========================================================= */
-
-function getInviteCode(url){
+function getInviteCode(invite){
 
     try{
 
-        const parsed =
-            new URL(url);
+        const url =
+            new URL(invite);
 
         const parts =
-            parsed.pathname
+            url.pathname
                 .split("/")
                 .filter(Boolean);
 
-        return parts[parts.length - 1];
+        return parts[
+            parts.length - 1
+        ];
 
     }catch{
 
@@ -2341,42 +2667,17 @@ function getInviteCode(url){
 
 
 /* =========================================================
-   NUMBER FORMAT
+   DISCORD INVITE API
 ========================================================= */
 
-function formatNumber(number){
-
-    if(
-        number === null ||
-        number === undefined ||
-        Number.isNaN(number)
-    ){
-        return "—";
-    }
-
-    return Number(number).toLocaleString();
-
-}
-
-
-/* =========================================================
-   LOAD DISCORD SERVER
-========================================================= */
-
-async function loadServer(){
+async function getServer(invite){
 
     const code =
-        getInviteCode(SHOWCASE_INVITE);
-
-    const sync =
-        document.getElementById("syncStatus");
+        getInviteCode(invite);
 
     if(!code){
 
-        sync.textContent =
-            "Invalid Discord invite.";
-
-        return;
+        return null;
 
     }
 
@@ -2396,113 +2697,22 @@ async function loadServer(){
         if(!response.ok){
 
             throw new Error(
-                "Discord API unavailable"
+                "Discord API error"
             );
 
         }
 
 
-        const data =
-            await response.json();
-
-
-        /* SERVER NAME */
-
-        document.getElementById(
-            "serverName"
-        ).textContent =
-            data.guild?.name ||
-            "Discord Server";
-
-
-        /* DESCRIPTION */
-
-        document.getElementById(
-            "serverDescription"
-        ).textContent =
-            data.guild?.description ||
-            "Join our Discord community and connect with everyone.";
-
-
-        /* SERVER ICON */
-
-        if(
-            data.guild?.id &&
-            data.guild?.icon
-        ){
-
-            const icon =
-                data.guild.icon;
-
-            const extension =
-                icon.startsWith("a_")
-                    ? "gif"
-                    : "png";
-
-            document.getElementById(
-                "serverIcon"
-            ).src =
-                `https://cdn.discordapp.com/icons/${data.guild.id}/${icon}.${extension}?size=256`;
-
-        }
-
-
-        /* SERVER BANNER */
-
-        if(
-            data.guild?.id &&
-            data.guild?.banner
-        ){
-
-            document.getElementById(
-                "serverBanner"
-            ).src =
-                `https://cdn.discordapp.com/banners/${data.guild.id}/${data.guild.banner}.png?size=1024`;
-
-        }
-
-
-        /* ONLINE */
-
-        document.getElementById(
-            "onlineCount"
-        ).textContent =
-            formatNumber(
-                data.approximate_presence_count
-            );
-
-
-        /* MEMBERS */
-
-        document.getElementById(
-            "memberCount"
-        ).textContent =
-            formatNumber(
-                data.approximate_member_count
-            );
-
-
-        /* JOIN */
-
-        document.getElementById(
-            "joinServer"
-        ).href =
-            SHOWCASE_INVITE;
-
-
-        /* SYNC */
-
-        sync.textContent =
-            "Last synced " +
-            new Date().toLocaleTimeString();
-
+        return await response.json();
 
     }catch(error){
 
-        console.log(error);
+        console.error(
+            "Discord:",
+            error
+        );
 
-        sync.textContent =
-            "Server preview temporarily unavailable.";
+        return null;
 
     }
 
@@ -2510,19 +2720,453 @@ async function loadServer(){
 
 
 /* =========================================================
-   INITIAL SERVER LOAD
+   CDN SERVER ICON
 ========================================================= */
 
-loadServer();
+function getServerIcon(guild){
+
+    if(
+        !guild ||
+        !guild.id ||
+        !guild.icon
+    ){
+
+        return "";
+
+    }
+
+
+    const extension =
+        guild.icon.startsWith("a_")
+            ? "gif"
+            : "png";
+
+
+    return (
+        "https://cdn.discordapp.com/icons/"
+        +
+        guild.id
+        +
+        "/"
+        +
+        guild.icon
+        +
+        "."
+        +
+        extension
+        +
+        "?size=256"
+    );
+
+}
 
 
 /* =========================================================
-   AUTO SYNC — 10 SECONDS
+   CDN SERVER BANNER
+========================================================= */
+
+function getServerBanner(guild){
+
+    if(
+        !guild ||
+        !guild.id ||
+        !guild.banner
+    ){
+
+        return "";
+
+    }
+
+
+    return (
+        "https://cdn.discordapp.com/banners/"
+        +
+        guild.id
+        +
+        "/"
+        +
+        guild.banner
+        +
+        ".png?size=1024"
+    );
+
+}
+
+
+/* =========================================================
+   SET IMAGE SAFELY
+========================================================= */
+
+function setImage(id,url){
+
+    const element =
+        document.getElementById(id);
+
+    if(
+        element &&
+        url
+    ){
+
+        element.src = url;
+
+    }
+
+}
+
+
+/* =========================================================
+   SHOP SERVER
+========================================================= */
+
+async function loadShop(){
+
+    const data =
+        await getServer(
+            SHOP_INVITE
+        );
+
+
+    document
+        .getElementById("shopButton")
+        .href =
+        SHOP_INVITE;
+
+
+    document
+        .getElementById("shopCommunity")
+        .href =
+        SHOP_INVITE;
+
+
+    if(!data){
+
+        return;
+
+    }
+
+
+    const icon =
+        getServerIcon(
+            data.guild
+        );
+
+
+    if(icon){
+
+        setImage(
+            "shopButtonLogo",
+            icon
+        );
+
+        setImage(
+            "shopCommunityLogo",
+            icon
+        );
+
+    }
+
+
+    if(data.guild?.name){
+
+        document
+            .getElementById(
+                "shopButtonName"
+            )
+            .textContent =
+            data.guild.name;
+
+
+        document
+            .getElementById(
+                "shopCommunityName"
+            )
+            .textContent =
+            data.guild.name;
+
+    }
+
+}
+
+
+/* =========================================================
+   NOBOGOTO
+========================================================= */
+
+async function loadNobogoto(){
+
+    const data =
+        await getServer(
+            NOBOGOTO_INVITE
+        );
+
+
+    document
+        .getElementById(
+            "nobogotoButton"
+        )
+        .href =
+        NOBOGOTO_INVITE;
+
+
+    document
+        .getElementById(
+            "nobogotoCommunity"
+        )
+        .href =
+        NOBOGOTO_INVITE;
+
+
+    document
+        .getElementById(
+            "contactNobogoto"
+        )
+        .href =
+        NOBOGOTO_INVITE;
+
+
+    if(!data){
+
+        return;
+
+    }
+
+
+    const icon =
+        getServerIcon(
+            data.guild
+        );
+
+
+    if(icon){
+
+        setImage(
+            "nobogotoButtonLogo",
+            icon
+        );
+
+        setImage(
+            "nobogotoCommunityLogo",
+            icon
+        );
+
+    }
+
+
+    if(data.guild?.name){
+
+        document
+            .getElementById(
+                "nobogotoButtonName"
+            )
+            .textContent =
+            data.guild.name;
+
+
+        document
+            .getElementById(
+                "nobogotoCommunityName"
+            )
+            .textContent =
+            data.guild.name;
+
+    }
+
+}
+
+
+/* =========================================================
+   SHOWCASE
+========================================================= */
+
+async function loadShowcase(){
+
+    const sync =
+        document.getElementById(
+            "showcaseSync"
+        );
+
+
+    sync.textContent =
+        "Syncing server...";
+
+
+    const data =
+        await getServer(
+            SHOWCASE_INVITE
+        );
+
+
+    if(!data){
+
+        sync.textContent =
+            "Unable to load server information.";
+
+        return;
+
+    }
+
+
+    const guild =
+        data.guild;
+
+
+    /* NAME */
+
+    document
+        .getElementById(
+            "showcaseName"
+        )
+        .textContent =
+        guild?.name ||
+        "Discord Server";
+
+
+    /* DESCRIPTION */
+
+    document
+        .getElementById(
+            "showcaseDescription"
+        )
+        .textContent =
+        guild?.description ||
+        "Join our Discord community and connect with everyone.";
+
+
+    /* ICON */
+
+    const icon =
+        getServerIcon(
+            guild
+        );
+
+
+    if(icon){
+
+        setImage(
+            "showcaseIcon",
+            icon
+        );
+
+    }
+
+
+    /* BANNER */
+
+    const banner =
+        getServerBanner(
+            guild
+        );
+
+
+    if(banner){
+
+        setImage(
+            "showcaseBanner",
+            banner
+        );
+
+    }
+
+
+    /* COUNTS */
+
+    document
+        .getElementById(
+            "showcaseOnline"
+        )
+        .textContent =
+        formatNumber(
+            data.approximate_presence_count
+        );
+
+
+    document
+        .getElementById(
+            "showcaseMembers"
+        )
+        .textContent =
+        formatNumber(
+            data.approximate_member_count
+        );
+
+
+    /* JOIN */
+
+    document
+        .getElementById(
+            "showcaseJoin"
+        )
+        .href =
+        SHOWCASE_INVITE;
+
+
+    /* TIME */
+
+    sync.textContent =
+        "Last synced " +
+        new Date()
+            .toLocaleTimeString();
+
+}
+
+
+/* =========================================================
+   NUMBER FORMAT
+========================================================= */
+
+function formatNumber(number){
+
+    if(
+        number === null ||
+        number === undefined ||
+        isNaN(number)
+    ){
+
+        return "—";
+
+    }
+
+
+    return Number(number)
+        .toLocaleString();
+
+}
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+loadShop();
+
+loadNobogoto();
+
+loadShowcase();
+
+
+/* =========================================================
+   10 SECOND AUTO SYNC
 ========================================================= */
 
 setInterval(
-    loadServer,
+    loadShowcase,
     10000
+);
+
+
+/*
+   Also refresh the small server
+   logos/names periodically.
+*/
+
+setInterval(
+    loadShop,
+    30000
+);
+
+setInterval(
+    loadNobogoto,
+    30000
 );
 
 
@@ -2530,18 +3174,20 @@ setInterval(
    SCROLL REVEAL
 ========================================================= */
 
-const observer =
+const revealObserver =
     new IntersectionObserver(
         entries => {
 
             entries.forEach(
                 entry => {
 
-                    if(entry.isIntersecting){
+                    if(
+                        entry.isIntersecting
+                    ){
 
-                        entry.target.classList.add(
-                            "show"
-                        );
+                        entry.target
+                            .classList
+                            .add("visible");
 
                     }
 
@@ -2558,22 +3204,20 @@ const observer =
 document
     .querySelectorAll(".reveal")
     .forEach(
-        element => observer.observe(element)
+        element =>
+            revealObserver.observe(
+                element
+            )
     );
 
 
 /* =========================================================
-   MOUSE PARALLAX
+   PROFILE PARALLAX
 ========================================================= */
 
 const profile =
     document.getElementById(
-        "profileHero"
-    );
-
-const heroRight =
-    document.querySelector(
-        ".hero-right"
+        "profilePhoto"
     );
 
 
@@ -2584,48 +3228,36 @@ document.addEventListener(
         if(
             window.innerWidth < 900
         ){
+
             return;
+
         }
 
 
         const x =
-            (event.clientX /
-            window.innerWidth - .5);
+            event.clientX /
+            window.innerWidth -
+            .5;
+
 
         const y =
-            (event.clientY /
-            window.innerHeight - .5);
+            event.clientY /
+            window.innerHeight -
+            .5;
 
 
         profile.style.transform =
             `
             translate(
-                ${x * 9}px,
-                ${y * 9 - 5}px
+                ${x * 8}px,
+                ${y * 8 - 5}px
             )
             `;
 
     }
 );
 
-
-/* =========================================================
-   IMAGE ERROR FALLBACK
-========================================================= */
-
-document
-    .getElementById("navLogo")
-    .addEventListener(
-        "error",
-        function(){
-
-            this.style.display =
-                "none";
-
-        }
-    );
-
 </script>
 
 </body>
-  </html>
+   </html>
